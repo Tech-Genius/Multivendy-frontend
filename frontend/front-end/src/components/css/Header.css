@@ -1,0 +1,38 @@
+.header{
+    background-image: linear-gradient(rgb(15, 62, 189),rgb(17, 107, 182));
+    color: white;
+  top: 0;
+  position: fixed;
+  width: 100%;
+
+  }
+  
+  .header nav{
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .logo{
+    margin:auto 20px;
+  }
+  
+  .logo h3{
+    margin: 0 !important;
+  }
+  
+  .nav_items{
+    margin: 0px 10px;
+  }
+  
+  .nav_items ul{
+   list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .nav_items ul li{
+    margin: 0px 20px !important;
+  padding-top: 20px;
+  }
+  
