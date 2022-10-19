@@ -1,0 +1,258 @@
+#root {
+    /* max-width: 1280px; */
+    /* margin: 0 auto; */
+    /* padding: 2rem; */
+    /* text-align: center; */
+    overflow: hidden;
+  }
+  
+  
+  
+  
+  
+  /* background_inner */
+  
+  .background_inner{
+    margin-top: 70px;
+    background-image: linear-gradient(45deg,rgb(15, 62, 189) 50%,#eb870d 50%);
+    height: fit-content;
+    padding: 70px 0px;
+  }
+  .box_wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+  }
+  .box_wrapper .box{
+    display: grid;
+  }
+  .box_wrapper .box{
+    color: white;
+    width: auto;
+    justify-self: center;
+  }
+  .box_wrapper #text{
+    width: 75%;
+  }
+  .box_wrapper .box h3{
+    font-size: 45px;
+    font-weight: bold
+  }
+
+  .box_wrapper .box h3 span{
+    color: #eb870d;
+  }
+  .box_wrapper .box button{
+    padding: 10px 40px;
+    color: white;
+    background-color: #eb870d;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.63);
+  }
+  .box_wrapper .box button i{
+    font-size: 18px;
+  }
+  .box_wrapper .box img{
+    margin-right:0px;
+    height: auto;
+    width: 100%;
+  }
+  /* background_inner */
+  
+  
+  
+  
+  
+  /* lst_prod_inner */
+  
+  .lst_prod_inner{
+    display: flex;
+    flex-wrap: wrap !important;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    margin-top: 60px;
+    /* overflow: hidden; */
+  }
+  
+  .lst_prod_box{
+    width: 23%;
+    display: grid;
+    place-items: center;
+    background-image: linear-gradient(rgb(221, 58, 8),rgb(78, 23, 6));
+    border-radius: 5px;
+    color: white;
+    padding: 20px;
+  }
+  .lst_prod_box .buttons button{
+    margin: auto 10px;
+    padding: 5px 10px;
+    color: rgb(14, 166, 212);
+    font-size: 18px;
+  }
+  .lst_prod_box .buttons #wishlist{
+    color: red;
+  }
+  
+  
+  /* lst_prod_inner */
+  
+  
+  
+  /* main_content_inner */
+
+  .main_content{
+    margin: 50px 0px;
+  }
+  
+  .main_content_inner{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+  }
+
+
+  
+
+  .buyer_heading h3, .vendor_heading h3{
+    font-size: 40px;
+    color:rgb(15, 62, 189);
+    font-weight:700;
+    text-align: center;
+  }
+
+  .buyer_heading h3 span, .vendor_heading h3 span{
+color: #eb870d;
+  }
+
+
+  .main_box{
+    width: 80%;
+    justify-self: center;
+  }
+  .main_content_inner #text{
+    margin-top: 40px;
+  }
+  .main_content_inner #text h3{
+    font-size: 40px;
+    color:rgb(15, 62, 189);
+    font-weight:700;
+  }
+  .main_content_inner #text h3 span{
+    color: #eb870d;
+  }
+  
+  
+  .main_box .main_buttons button{
+    padding: 12px 42px;
+    color: white;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(45deg, rgb(15, 62, 189) 50%,#eb870d 50%);
+    box-shadow: 3px 3px 3px rgb(10, 8, 8); 
+    margin-right: 20px;
+  }
+  .main_box .main_buttons #sign_in{
+    background-image: linear-gradient(45deg,#eb870d 50%, rgb(15, 62, 189) 50%);
+  }
+
+#seller #text{
+    justify-self: end;
+    width: 75%;
+}
+
+#seller #img{
+    justify-self: start;
+}
+
+  /* main_content_inner */
+  
+  
+  
+  
+  
+  
+  @keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+  
+  .card {
+    padding: 2em;
+  }
+  
+  .read-the-docs {
+    color: #888;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  @media screen and (max-width:912px){
+    .background_inner{
+      height: fit-content;
+    }
+    .background_inner .box_wrapper, .main_content_inner{
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .box_wrapper #text{
+      width: 100%;
+    }
+    .background_inner .box_wrapper .box{
+      padding: 30px;
+    }
+
+    .box_wrapper .box h3 span{
+        color: white;
+      }
+    .box_wrapper .box h3,  .buyer_heading h3, .vendor_heading h3{
+      font-size: 30px;
+    }
+
+    .main_content_inner .main_box{
+width: 100%;
+    }
+
+    .main_content_inner .main_box img{
+        width: 100%;
+    }
+    .main_content_inner #text h3{
+        font-size: 23px;
+      }
+
+      .main_box .main_buttons button{
+        padding: 10px 40px;
+    }
+
+      #seller #text{
+        justify-self: center;
+        width: 100%;
+    }
+    
+    #seller #img{
+        justify-self: center;
+        grid-row: 1;
+    }
+    
+  
+  }

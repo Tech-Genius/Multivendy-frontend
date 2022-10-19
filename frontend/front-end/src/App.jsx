@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg';
 import landing from './assets/landing3.png';
+import delivery from './assets/delivery.png';
 import './App.css'
 import "bootstrap/dist/css/bootstrap.css";
 import Header from './components/Header'
+import Home from './components/Home'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 function App() {
@@ -11,10 +15,11 @@ function App() {
 
    return (
       <>
-      <Header/>
-
-
-         {/* <div className="main">
+         <Header />
+         <Home />
+         
+{/* 
+         <div className="main">
             <div className="lst_prod">
                <div className="lst_prod_inner">
                   <div className="lst_prod_box">
@@ -61,29 +66,9 @@ function App() {
 
             </div>
 
-         </div> */
+         </div>  */}
+         </>
 
-         <div className="background">
-           <div className="background_inner">
-            <div className="box_wrapper">
-               <div className="box">
-                  <h3>Shopping Has Never <br/> Been Easier</h3>
-                  <p>Shop anything you want today, with just few clicks</p>
-                  <a href=""><button>View Store <i className="fa fa-cart-plus"></i></button></a>
-               </div>
-               <div className="box">
-               <img src={landing} alt="" />
-               </div>
-            </div>
-           </div>
-         </div>
-         
-         
-         
-         
-         }
-
-      </>
    );
 };
 
