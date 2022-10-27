@@ -1,6 +1,7 @@
 import './css/Header.css'
 import React, {Component} from 'react'
 import $ from 'jquery'
+import { Link } from 'react-router-dom'
 
 
 export default class Header extends Component {
@@ -47,10 +48,10 @@ export default class Header extends Component {
 
             <div className="nav_items">
                <ul>
-                  <li className="item">Item</li>
-                  <li className="item">Item</li>
-                  <li className="item">Item</li>
-                  <li className="item">Item</li>
+                  <li><Link to='' className="item">Item</Link></li>
+                  <li><Link to='store' className="item">Store</Link></li>
+                  <li><Link to='' className="item">Item</Link></li>
+                  <li><Link to='' className="item">Item</Link></li>
                </ul>
             </div>
 

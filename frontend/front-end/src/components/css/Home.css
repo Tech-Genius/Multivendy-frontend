@@ -10,6 +10,7 @@
   
   
   
+  
   /* background_inner */
   
   .background_inner{
@@ -54,7 +55,7 @@
   }
   .box_wrapper .box img{
     margin-right:0px;
-    height: auto;
+    height: 100%;
     width: 100%;
   }
   /* background_inner */
@@ -62,39 +63,7 @@
   
   
   
-  
-  /* lst_prod_inner */
-  
-  .lst_prod_inner{
-    display: flex;
-    flex-wrap: wrap !important;
-    flex-wrap: wrap;
-    justify-content:space-evenly;
-    margin-top: 60px;
-    /* overflow: hidden; */
-  }
-  
-  .lst_prod_box{
-    width: 23%;
-    display: grid;
-    place-items: center;
-    background-image: linear-gradient(rgb(221, 58, 8),rgb(78, 23, 6));
-    border-radius: 5px;
-    color: white;
-    padding: 20px;
-  }
-  .lst_prod_box .buttons button{
-    margin: auto 10px;
-    padding: 5px 10px;
-    color: rgb(14, 166, 212);
-    font-size: 18px;
-  }
-  .lst_prod_box .buttons #wishlist{
-    color: red;
-  }
-  
-  
-  /* lst_prod_inner */
+
   
   
   

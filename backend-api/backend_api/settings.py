@@ -39,11 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -115,16 +117,20 @@ REST_FRAMEWORK = {
     #     'rest_framework.permissions.IsAuthenticated',
     # ],
 
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
+    # 'DEFAULT_AUTHENTICATION_CLASSES': [
+    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
+    # ],
 
     'DEFAULT_PAGINATION_CLASS': 'main.pagination.CustomPagination',
-    'PAGE_SIZE': 1,
+    'PAGE_SIZE': 5,
 
 
 }
+CORS_ALLOW_HEADERS = "*"
 
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5173"
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

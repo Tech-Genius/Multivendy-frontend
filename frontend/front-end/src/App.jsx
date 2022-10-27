@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg';
-import landing from './assets/landing3.png';
-import delivery from './assets/delivery.png';
 import './App.css'
 import "bootstrap/dist/css/bootstrap.css";
 import Header from './components/Header'
 import Home from './components/Home'
+import { Route, Routes } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Store from './components/Store'
+import Sidebar from './components/Sidebar';
+import Single from './components/Single';
 
 
 function App() {
@@ -16,58 +17,16 @@ function App() {
    return (
       <>
          <Header />
-         <Home />
-         
-{/* 
-         <div className="main">
-            <div className="lst_prod">
-               <div className="lst_prod_inner">
-                  <div className="lst_prod_box">
-                     <img src={reactLogo} alt="" />
-                     <h3>React</h3>
-                     <p>$30</p>
-                     <div className="buttons">
-                        <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
-                        <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
-                     </div>
-                  </div>
+         {/* <Sidebar /> */}
 
-                  <div className="lst_prod_box">
-                     <img src={reactLogo} alt="" />
-                     <h3>React</h3>
-                     <p>$30</p>
-                     <div className="buttons">
-                        <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
-                        <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
-                     </div>
-                  </div>
+         <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='store' element={<Store />} />
+            <Route path='single' element={<Single />} />
+         </Routes>
 
-                  <div className="lst_prod_box">
-                     <img src={reactLogo} alt="" />
-                     <h3>React</h3>
-                     <p>$30</p>
-                     <div className="buttons">
-                        <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
-                        <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
-                     </div>
-                  </div>
 
-                  <div className="lst_prod_box">
-                     <img src={reactLogo} alt="" />
-                     <h3>React</h3>
-                     <p>$30</p>
-                     <div className="buttons">
-                        <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
-                        <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
-                     </div>
-                  </div>
-
-               </div>
-
-            </div>
-
-         </div>  */}
-         </>
+      </>
 
    );
 };
