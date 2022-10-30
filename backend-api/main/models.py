@@ -20,7 +20,9 @@ class Vendor(models.Model):
 #Product category
 class ProductCategory(models.Model):
     title = models.CharField(max_length=225)
-    details = models.TextField(null = True)   
+    details = models.TextField(null = True)
+    image = models.ImageField(upload_to='category-images', null=True) 
+
 
     def __str__(self):
         return self.title
@@ -32,6 +34,7 @@ class Products(models.Model):
     title = models.CharField(max_length=200)
     detail = models.TextField(null=True)
     price = models.FloatField()
+    image = models.ImageField(upload_to='store-images', null=True)
 
     def __str__(self):
         return self.title

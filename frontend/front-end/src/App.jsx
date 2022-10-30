@@ -9,6 +9,7 @@ import 'aos/dist/aos.css';
 import Store from './components/Store'
 import Sidebar from './components/Sidebar';
 import Single from './components/Single';
+import Categories from './components/Categories';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='store' element={<Store />} />
             <Route path='single' element={<Single />} />
+            <Route path='categories' element={<Categories />} />
          </Routes>
 
 

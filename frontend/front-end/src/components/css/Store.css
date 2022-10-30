@@ -6,24 +6,78 @@ display: flex;
 .sidebar{
     margin-top: 10px;
     position: fixed;
-    width: 20%;
+    width: 17%;
     left: 0;
     height: 100%;
     z-index: 990;
     display: grid;
-    place-items: center;
+   justify-content: center;
     border-right: 1px solid rgba(160, 157, 157, 0.712);
+    overflow: scroll;
+
+}
+.sidebar h3{
+  /* margin-bottom: 30px; */
+}
+
+.cate{
+  margin-bottom: 30px; 
+}
+
+.price{
+  margin-bottom: 30px;
+}
+
+.colors_wrap{
+  display: flex;
+  justify-content: space-between
+}
+.color{
+  background-color: aqua;
+  padding: 9px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.colors_wrap #f{
+  background-color: rgb(212, 17, 17);
+}
+.colors_wrap #s{
+  background-color: black;
+}
+.colors_wrap #t{
+  background-color: gold;
+}
+
+.colors_wrap #fh{
+  background-color: rgb(12, 106, 143);
+}
+
+
+
+.st_prod{
+  position: absolute;
+  right: 0;
+  width: 83%;
+  padding: 20px;
 }
 .st_prod_inner{
-  padding: 20px;
+
   display: grid;
-   width: 80%;
-   position: absolute;
-   right: 0;
 }
 .st_prod_box{
   display: flex;
   justify-content: space-evenly;
+}
+.pagination{
+  display: flex;
+  justify-content: center;
+}
+.paginate p{
+  padding: 5px 10px;
+  border: 1px solid rgb(8, 33, 104);
+  margin: 20px;
+  cursor: pointer;
 }
  /* lst_prod_inner */
   

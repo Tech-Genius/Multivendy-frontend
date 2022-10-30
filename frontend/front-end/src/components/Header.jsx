@@ -48,9 +48,9 @@ export default class Header extends Component {
 
             <div className="nav_items">
                <ul>
-                  <li><Link to='' className="item">Item</Link></li>
+                  <li><Link to='' className="item">Home</Link></li>
                   <li><Link to='store' className="item">Store</Link></li>
-                  <li><Link to='' className="item">Item</Link></li>
+                  <li><Link to='categories' className="item">Categories</Link></li>
                   <li><Link to='' className="item">Item</Link></li>
                </ul>
             </div>

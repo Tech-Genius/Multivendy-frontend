@@ -122,11 +122,11 @@ REST_FRAMEWORK = {
     # ],
 
     'DEFAULT_PAGINATION_CLASS': 'main.pagination.CustomPagination',
-    'PAGE_SIZE': 5,
+    'PAGE_SIZE': 100,
 
 
 }
-CORS_ALLOW_HEADERS = "*"
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173"

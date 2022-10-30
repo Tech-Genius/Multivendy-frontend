@@ -20,16 +20,20 @@
     margin-top: 60px;
     /* overflow: hidden; */
   }
+
   
   .lst_prod_box{
 min-width: 30%;
     display: grid;
     place-items: center;
-    background-image: linear-gradient(rgb(221, 58, 8),rgb(78, 23, 6));
+    background-image: linear-gradient(to right,rgb(8, 33, 104) 40%, rgb(14, 118, 204) );
     border-radius: 5px;
     color: white;
     padding: 20px;
     margin: 20px 0px;
+  }
+  .lst_prod_box p{
+color: #eb870d;
   }
   .lst_prod_box .buttons button{
     margin: auto 10px;

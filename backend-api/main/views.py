@@ -32,6 +32,24 @@ class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
     # permission_classes = [permissions.IsAuthenticated]
 
 
+
+
+class CategoryList(generics.ListCreateAPIView):
+    queryset = models.ProductCategory.objects.all()
+    serializer_class = serializers.CategoryListSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+
+
+class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.ProductCategory.objects.all()
+    serializer_class = serializers.CategoryDetailSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+
+
+
+
 class CustomerList(generics.ListCreateAPIView):
     queryset = models.Customer.objects.all()
     serializer_class = serializers.CustomerListSerializer

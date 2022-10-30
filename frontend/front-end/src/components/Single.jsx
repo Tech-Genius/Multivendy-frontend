@@ -15,7 +15,7 @@ function Single(props) {
                     <div className="lst_prod_box">
                         <img src={reactLogo} alt="" />
                         <h3>{props.product.title}</h3>
-                        <p>${props.product.vendor.username}</p>
+                        <p>${props.product.price}</p>
                         <div className="buttons">
                             <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
                             <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>

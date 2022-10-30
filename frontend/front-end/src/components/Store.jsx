@@ -2,111 +2,113 @@ import './css/Store.css'
 import reactLogo from './assets/react.svg';
 import landing from './assets/landing3.png';
 import delivery from './assets/delivery.png';
-import {useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Single from './Single';
-function Store() {
+import Categories from './Categories'
+import { Link } from 'react-router-dom'
+function Store(props) {
+    const baseUrl = 'http://localhost:8000/api'
+    const [products, setProducts] = useState([])
+    const [totalResult, setTotalResults] = useState(0)
 
-
-
-    const [products, setProducts]=useState([])
     useEffect(() => {
-        fetchData('http://localhost:8000/api/products/');
+        fetchData(baseUrl + '/store');
 
-    });
-    
-    function fetchData(baseurl){
+    }, []);
+
+    function fetchData(baseurl) {
         fetch(baseurl)
-        .then((response) => response.json())
-        .then((data) => setProducts(data.results));
+            .then((response) => response.json())
+            .then((data) => {
+                setProducts(data.results)
+                setTotalResults(data.count)
+
+            });
+
+
     }
+    function changeUrl(baseurl) {
+        fetchData(baseurl)
+
+    }
+
+    var links = []
+    var limit = 1
+    var totalLinks = totalResult / limit
+    for (let i = 1; i <= totalResult; i++) {
+        links.push(<div className="paginate"><Link onClick={() => changeUrl(baseUrl + `/store/?page=${i}`)} to={`/store/?page=${i}`}><p>{i}</p></Link></div>)
+    }
+
+
+    // const [categories, setCategories] = useState([])
+    // useEffect(() => {
+    //     fetchData('http://localhost:8000/api/categories/');
+
+    // });
+
+    // function fetchData(baseurl) {
+    //     fetch(baseurl)
+    //         .then((response) => response.json())
+    //         .then((data) => setCategories(data.results));
+    // }
+
+
 
 
     return (
 
         <div className="store">
             <div className="sidebar">
-                <h3 >nnn</h3>
+                <h3 >Filter By</h3>
+                <div className="sidebar_inner">
+                    <div className="cate">
+                        <h5>Category</h5>
+                        <Categories></Categories>
+                    </div>
+                    <div className="price">
+                        <h5>Price</h5>
+                        <input type="range" />
+                    </div>
+
+                    <div className="colors">
+                        <h5>Color</h5>
+                        <div className="colors_wrap">
+                            <div className="color" id='f'></div>
+                            <div className="color" id='s'></div>
+                            <div className="color" id='t'></div>
+                            <div className="color" id='fh'></div>
+                        </div>
+                    </div>
+                </div>
+                {/* <div className="st_prod_inner">
+                    <div className="st_prod_box">
+                        {
+                            categories.map((category) => <Categories category={category} />)
+                        }
+
+
+
+                    </div>
+
+                </div> */}
             </div>
             <div className="st_prod">
                 <div className="st_prod_inner">
                     <div className="st_prod_box">
                         {
-                           products.map((product)=> <Single product={product}/>)
+                            products.map((product) => <Single product={product} />)
                         }
 
-                        {/* <img src={reactLogo} alt="" />
-                        <h3>React</h3>
-                        <p>$30</p>
-                        <div className="buttons">
-                            <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
-                            <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
-                        </div> */}
-                    </div>
-                    {/* 
-                    <div className="lst_prod_box">
-                        <img src={reactLogo} alt="" />
-                        <h3>React</h3>
-                        <p>$30</p>
-                        <div className="buttons">
-                            <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
-                            <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
-                        </div>
-                    </div>
 
-                    <div className="lst_prod_box">
-                        <img src={reactLogo} alt="" />
-                        <h3>React</h3>
-                        <p>$30</p>
-                        <div className="buttons">
-                            <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
-                            <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
-                        </div>
+
                     </div>
-
-                    <div className="lst_prod_box">
-                        <img src={reactLogo} alt="" />
-                        <h3>React</h3>
-                        <p>$30</p>
-                        <div className="buttons">
-                            <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
-                            <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div className="lst_prod_box">
-                        <img src={reactLogo} alt="" />
-                        <h3>React</h3>
-                        <p>$30</p>
-                        <div className="buttons">
-                            <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
-                            <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div className="lst_prod_box">
-                        <img src={reactLogo} alt="" />
-                        <h3>React</h3>
-                        <p>$30</p>
-                        <div className="buttons">
-                            <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
-                            <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div className="lst_prod_box">
-                        <img src={reactLogo} alt="" />
-                        <h3>React</h3>
-                        <p>$30</p>
-                        <div className="buttons">
-                            <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
-                            <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
-                        </div>
-                    </div> */}
-
 
                 </div>
 
+                <div className="pagination">
+                    {links}
 
+                </div>
 
 
             </div>
