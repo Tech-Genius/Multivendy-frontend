@@ -13,13 +13,18 @@ function Single(props) {
                  */}
                     
                     <div className="lst_prod_box">
-                        <img src={reactLogo} alt="" />
-                        <h3>{props.product.title}</h3>
-                        <p>${props.product.price}</p>
-                        <div className="buttons">
-                            <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
-                            <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
+                <div className="img">
+                <img src={props.product.image} alt="" />
+                <div className="buttons">
+                            <button title='Add To Cart'>Add To Cart</button>
+                            {/* <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button> */}
                         </div>
+                </div>
+                    <div className="t_and_p">
+                    <a href={`/store/${props.product.id}`}><h3>{props.product.title}</h3></a>
+                        <p>&#8358;{props.product.price}</p>
+                    </div>
+
                     </div>
 
                

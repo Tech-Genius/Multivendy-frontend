@@ -10,6 +10,10 @@ import Store from './components/Store'
 import Sidebar from './components/Sidebar';
 import Single from './components/Single';
 import Categories from './components/Categories';
+import CategoryProducts from './components/CategoryProducts';
+import Search from './components/Search';
+import Tab from './components/Tab';
+import Detail from './components/ProductDetail';
 
 
 function App() {
@@ -25,8 +29,11 @@ function App() {
             <Route path='store' element={<Store />} />
             <Route path='single' element={<Single />} />
             <Route path='categories' element={<Categories />} />
+            <Route path='category/:category_title/:category_id' element={<CategoryProducts />} />
+            <Route path='search/search/?=:search' element={< Search/>} />
+            <Route path='tab' element={< Tab/>} />
+            <Route path='store/:product_id' element={<Detail />} />
          </Routes>
-
 
       </>
 

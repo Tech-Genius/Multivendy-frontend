@@ -3,6 +3,8 @@ from django.shortcuts import render
 from rest_framework import generics,permissions, pagination, viewsets
 from . import serializers
 from . import models
+from . models import Products
+from rest_framework import filters
 # Create your views here.
 
 
@@ -20,22 +22,53 @@ class VendorDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class ProductList(generics.ListCreateAPIView):
-    queryset = models.Products.objects.all()
-    serializer_class = serializers.ProductListSerializer
+    queryset = models.Products.objects.all().order_by('-date_added')[:6]
+    serializer_class = serializers.ProductListSerializer  
+
     # permission_classes = [permissions.IsAuthenticated]
 
-
+    # def get_queryset(self):
+    #     qs = super().get_queryset()
+    #     category = self.request.GET['category']
+    #     category = models.ProductCategory.objects.get(id=category)
+    #     qs = qs.filter(category=category)
+        # return qs
 
 class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Products.objects.all()
     serializer_class = serializers.ProductDetailSerializer
     # permission_classes = [permissions.IsAuthenticated]
 
+class ProductListByCategory(generics.ListCreateAPIView):
+    queryset = models.Products.objects.all()
+    serializer_class = serializers.ProductListByCategorySerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        category = self.request.GET['category']
+        category = models.ProductCategory.objects.get(id=category)
+        qs = qs.filter(category=category)
+        return qs
+
+
+
+class ProductSearchList(generics.ListCreateAPIView):
+    queryset = models.Products.objects.all()
+    search_fields = ['title', 'category__title']
+    filter_backends = (filters.SearchFilter,)
+    qs = Products.objects.all()
+    serializer_class = serializers.ProductListSerializer  
+
+
+
+
 
 
 
 class CategoryList(generics.ListCreateAPIView):
     queryset = models.ProductCategory.objects.all()
+    
     serializer_class = serializers.CategoryListSerializer
     # permission_classes = [permissions.IsAuthenticated]
 

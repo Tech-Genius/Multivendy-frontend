@@ -41,7 +41,9 @@
     width: 100%;
 
   }
-
+#search_sm_screen{
+  display: none;
+}
   .search input{
     width: 100%;
     border: none;
@@ -95,14 +97,21 @@
 
   @media screen and (max-width:912px){
     .header nav{
-      grid-template-columns: 0.5fr 1fr 0.5fr;
+      grid-template-columns: 1fr 1fr;
     }
     .search-bar{
    border-radius: 10px;
     }
-    .sm_controls{
+    #search_lg_screen{
+      display: none;
+    }
+    #search_sm_screen{
       display: block;
+    }
+    .sm_controls{
+      display: flex;
       margin:auto 20px; 
+      
     }
 
     .sm_controls .close{
@@ -114,6 +123,10 @@ display: none;
   }
 .sm_cntrl{
   float: right;
+  margin: 0px 10px;
+}
+.sm_controls{
+justify-self: end;
 }
   .sm_controls i{
     font-size: 20px;
@@ -129,7 +142,6 @@ display: none;
 padding: 30px;
 margin-top: 70px;
 right: 0;
-
   }
 
   .nav_items ul{

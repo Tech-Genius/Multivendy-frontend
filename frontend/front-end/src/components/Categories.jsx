@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom'
 
 
 function Categories(props) {
-
+    const refreshPage = ()=>{
+        window.location.reload();
+     }
 
     const baseUrl = 'http://localhost:8000/api'
     const [categories, setCategories] = useState([])
@@ -44,10 +46,10 @@ function Categories(props) {
     return (
         <div className="category">
             {
-                categories.map((category) =>
+                categories.map((category)=>
 
-                    <div className="category_box">
-                        <p>{category.title}</p>
+                    <div className="category_box" onClick={refreshPage}>
+                        <p><Link to={`/category/${category.title}/${category.id}`}>{category.title}</Link></p>
                     </div>
                 )
             }

@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import Single from './Single';
 import Categories from './Categories'
 import { Link } from 'react-router-dom'
+import Search from './Search';
 function Store(props) {
     const baseUrl = 'http://localhost:8000/api'
     const [products, setProducts] = useState([])
@@ -58,13 +59,16 @@ function Store(props) {
     return (
 
         <div className="store">
+          
             <div className="sidebar">
                 <h3 >Filter By</h3>
+                
                 <div className="sidebar_inner">
                     <div className="cate">
                         <h5>Category</h5>
                         <Categories></Categories>
                     </div>
+
                     <div className="price">
                         <h5>Price</h5>
                         <input type="range" />
@@ -79,21 +83,15 @@ function Store(props) {
                             <div className="color" id='fh'></div>
                         </div>
                     </div>
-                </div>
-                {/* <div className="st_prod_inner">
-                    <div className="st_prod_box">
-                        {
-                            categories.map((category) => <Categories category={category} />)
-                        }
-
-
-
-                    </div>
-
-                </div> */}
+                
+    
             </div>
+            </div>
+
             <div className="st_prod">
-                <div className="st_prod_inner">
+                <div className="prod_heading"  id='latest'><h3>Latest Arivals</h3></div>
+              
+                <div className="st_prod_inner" id='latest'>
                     <div className="st_prod_box">
                         {
                             products.map((product) => <Single product={product} />)
@@ -105,8 +103,29 @@ function Store(props) {
 
                 </div>
 
+
+                <div className="prod_heading" id='best_sellers'><h3>Best Sellers</h3></div>
+                <div className="st_prod_inner" id='best_sellers'>
+                    <div className="st_prod_box">
+                        {
+                            products.map((product) => <Single product={product} />)
+                        }
+
+
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
                 <div className="pagination">
-                    {links}
+                    {/* {links} */}
 
                 </div>
 
