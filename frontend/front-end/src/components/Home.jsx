@@ -32,7 +32,7 @@ class Home extends Component {
                                     <Link to='store'><button>View Store <i className="fa fa-cart-plus"></i></button></Link>
 
                                 </div>
-                                <div className="box" data-aos="fade-left" data-aos-duration="1200">
+                                <div className="box" id='img' data-aos="fade-left" data-aos-duration="1200">
                                     <img src={landing} alt="" />
                                 </div>
                             </div>

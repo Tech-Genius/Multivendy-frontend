@@ -36,7 +36,9 @@ class ProductList(generics.ListCreateAPIView):
 
 class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Products.objects.all()
+    # related_product = Products.objects.filter(category__in=product.category.all()).exclude(slug=slug).distinct()[:3]
     serializer_class = serializers.ProductDetailSerializer
+
     # permission_classes = [permissions.IsAuthenticated]
 
 class ProductListByCategory(generics.ListCreateAPIView):

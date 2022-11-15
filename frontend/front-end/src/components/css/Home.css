@@ -179,16 +179,22 @@ color: #eb870d;
   @media screen and (max-width:912px){
     .background_inner{
       height: fit-content;
+      padding-bottom: 0px;
     }
     .background_inner .box_wrapper, .main_content_inner{
       grid-template-columns: 1fr;
       text-align: center;
     }
+
     .box_wrapper #text{
       width: 100%;
     }
     .background_inner .box_wrapper .box{
       padding: 30px;
+    }
+    .background_inner .box_wrapper .box#img{
+      padding-bottom: 0px;
+      width: 100%;
     }
 
     .box_wrapper .box h3 span{
