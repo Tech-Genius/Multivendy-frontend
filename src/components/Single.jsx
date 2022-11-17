@@ -1,6 +1,6 @@
 import reactLogo from './assets/react.svg'
 import './css/Single.css'
-
+import { Link } from 'react-router-dom'
 function Single(props) {
     return (
         <>
@@ -21,7 +21,7 @@ function Single(props) {
                         </div>
                 </div>
                     <div className="t_and_p">
-                    <a href={`/store/${props.product.id}`}><h3>{props.product.title}</h3></a>
+                    <Link to={`/store/${props.product.id}`}><h3>{props.product.title}</h3></Link>
                         <p>&#8358;{props.product.price}</p>
                     </div>
 

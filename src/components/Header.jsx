@@ -64,10 +64,10 @@ export default class Header extends Component {
                      <input type="search" placeholder="Search" />
                   </div>
                </div>
-                     <li><Link to='' className="item">Home</Link></li>
-                     <li><Link to='store' className="item">Store</Link></li>
-                     <li><Link to='categories' className="item">Categories</Link></li>
-                     <li><Link to='' className="item">Item</Link></li>
+                     <li><Link to='' className="item" onClick={refreshPage}>Home</Link></li>
+                     <li><Link to='store' className="item" onClick={refreshPage}>Store</Link></li>
+                     <li><Link to='categories' className="item" onClick={refreshPage}>Categories</Link></li>
+                     <li><Link to='' className="item" onClick={refreshPage}>Item</Link></li>
                   </ul>
                </div>
 
