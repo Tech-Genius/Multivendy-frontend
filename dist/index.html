@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/js/all.min.js"></script> -->
+    <title>Multivendyy</title>
+    <script type="module" crossorigin src="/assets/index.3aae82a0.js"></script>
+    <link rel="stylesheet" href="/assets/index.916638a5.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- <script src="/src/main.js"></script> -->
+
+  </body>
+</html>
+
+
+
+<!-- 
+   /* <div className="main">
+            <div className="lst_prod">
+               <div className="lst_prod_inner">
+                  <div className="lst_prod_box">
+                     <img src={reactLogo} alt="" />
+                     <h3>React</h3>
+                     <p>$30</p>
+                     <div className="buttons">
+                        <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
+                        <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
+                     </div>
+                  </div>
+
+                  <div className="lst_prod_box">
+                     <img src={reactLogo} alt="" />
+                     <h3>React</h3>
+                     <p>$30</p>
+                     <div className="buttons">
+                        <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
+                        <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
+                     </div>
+                  </div>
+
+                  <div className="lst_prod_box">
+                     <img src={reactLogo} alt="" />
+                     <h3>React</h3>
+                     <p>$30</p>
+                     <div className="buttons">
+                        <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
+                        <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
+                     </div>
+                  </div>
+
+                  <div className="lst_prod_box">
+                     <img src={reactLogo} alt="" />
+                     <h3>React</h3>
+                     <p>$30</p>
+                     <div className="buttons">
+                        <button title='Add To Cart'><i className="fa fa-cart-plus"></i></button>
+                        <button title='Add To Wishlist' id='wishlist'><i className="fa fa-heart"></i></button>
+                     </div>
+                  </div>
+
+               </div>
+
+            </div>
+
+         </div> */
+ -->
+
+
+
+
+
+
+
+
+
+<!-- 
+  <h3></h3>
+   <div className="main-header">
+
+      <div className="row header-inner" data-aos="fade-up" data-aos-duration="1200">
+
+         <div className="logo">
+            <div className="header">
+               <a href="{% url 'home' %}">
+                  
+                  <h3 style="color: white;" className="k"><span className="large">Meal-tab🥄</span> <i className="fa fa-home small"></i></h3>
+               </a>
+            </div>
+         </div>
+
+
+         <div className="search-input" id="large">
+            <form method="GET" action="{% url 'search' %}">
+
+
+
+               <div className="form-group">
+
+
+                  <input type="text" id="" name="q" required/>
+                  <label>Search your next meal <i className=" fa fa-search"></i></label>
+
+               </div>
+
+            </form>
+
+
+         </div>
+
+ 
+    
+
+
+         <div className="small_sreen_cart">
+           
+            <a href="{% url 'cart_view' %}" id="cart_sm_screen">
+
+               <i className="fa fa-cart-plus" aria-hidden="true"></i>
+               <p className="cart-amount">(<span className="cart_item_total"></span>)</p>
+
+            </a>
+
+
+         </div>
+
+
+
+
+         <nav id="nav-wrap">
+
+
+
+
+
+
+            <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
+               <span className='menu-text'>Show Menu</span>
+               <span className="menu-icon"></span>
+            </a>
+            <a className="mobile-btn" href="#" title="Hide navigation">
+               <span className='menu-text'>Hide Menu</span>
+               <span className="menu-icon"></span>
+            </a>
+
+            <ul id="nav" className="nav">
+
+               <div className="search-input" id="small">
+                  <form method="GET" action="{% url 'search' %}">
+
+
+
+                     <div className="form-group">
+
+
+                        <input type="text" id="" name="q" required/>
+                        <label>Search your next meal <i className=" fa fa-search"></i></label>
+                     </div>
+
+                  </form>
+               </div>
+
+
+
+               <li><a href="{% url 'home' %}" id="home">Home.</a></li>
+
+               <li> <a href="{% url 'shop' %}" id="shop">Shop.</a>
+               </li>
+
+               <li id="cart_li">
+                  <a href="{% url 'cart_view' %}" id="cart">
+
+                     <i className="fa fa-cart-plus" aria-hidden="true"></i>
+                     <p className="cart-amount">(<span className="cart_item_total"></span>)
+                     </p>
+
+                  </a>
+
+               </li>
+
+
+
+               <li className="dropdown"> <a style="  pointer-events: none;"><i className="fa fa-user"
+                        style="font-size: 15px; font-weight: bold;"></i> <i
+                        className="fa fa-angle-right"></i> <i className="fa fa-angle-down" id="arrow-down"
+                        style="cursor: pointer ;"></i></a>
+
+                  <ul className="dropdown-menu">
+                     <li style="width: 100%; height: fit-content;"> <a href="{% url 'signup' %}">Profile</a></li>
+                     <li style="width: 100%; height: fit-content;"><a href="{% url 'logout' %}">Logout</a></li>
+                  </ul>
+
+               </li>
+
+
+
+               <li className="dropdown-account"> <a style="  pointer-events: none;" id="reservation"> Reservations <i
+                        className="fa fa-angle-right"></i> <i className="fa fa-angle-down" id="arrow-down"
+                        style="cursor: pointer ;"></i></a>
+
+                  <ul className="dropdown-menu-account">
+                     <li style="width: 100%; height: fit-content;"> <a href="{% url 'event-reservation' %}">Events</a>
+                     </li>
+                     <li style="width: 100%; height: fit-content;"><a href="{% url 'table-reservation' %}">Book A
+                           Table</a></li>
+                  </ul>
+
+               </li>
+            </ul>
+
+         </nav> 
+
+
+
+
+          
+
+  
+      </div> 
+
+   </div>
+
+ -->
