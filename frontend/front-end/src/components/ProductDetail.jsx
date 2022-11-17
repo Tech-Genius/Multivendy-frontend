@@ -7,7 +7,7 @@ import Single from "./Single";
 import Categories from "./Categories";
 import axios from 'axios'
 function Detail() {
-    const baseUrl = 'http://localhost:8000/api'
+    const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
     const [product, setProduct] = useState([]);
     // const [totalResult, setTotalResults] = useState(0)
     let { product_id } = useParams();
