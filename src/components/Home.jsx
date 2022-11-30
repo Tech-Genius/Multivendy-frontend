@@ -54,8 +54,8 @@ class Home extends Component {
                             <div className="main_box" id='text' data-aos="fade-left" data-aos-duration="1200">
                                 <h3>It Simple, Create <span>A Buyer</span> <br />  Account, <span>Make An</span> <br />  Order, Recieve <br /> <span>Order!</span></h3>
                                 <div className="main_buttons">
-                                    <a href=""><button>Sign Up</button></a>
-                                    <a href=""><button id='sign_in'>Sign In</button></a>
+                                    <Link to='buyer-signup'><button>Sign Up</button></Link>
+                                    <Link><button id='sign_in'>Sign In</button></Link>
                                 </div>
                             </div>
 
@@ -74,8 +74,8 @@ class Home extends Component {
                             <div className="main_box" id='text' data-aos="fade-right" data-aos-duration="1200">
                                 <h3>Sell  And <span>Manage Your </span> <br /> Products <span>In A</span> <br />  More Smarter <br /> <span>Way!</span> </h3>
                                 <div className="main_buttons">
-                                    <a href=""><button>Sign Up</button></a>
-                                    <a href=""><button id='sign_in'>Sign In</button></a>
+                                <Link to='vendor-signup'><button>Sign Up</button></Link>
+                                <Link><button id='sign_in'>Sign In</button></Link>
                                 </div>
                             </div>
 

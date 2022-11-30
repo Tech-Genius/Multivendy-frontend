@@ -137,10 +137,18 @@ margin: 0;
 @media screen and (max-width:439px){
 
   .lst_prod_box{
-    width: 95%;
+    width: 40%;
   }
   .t_and_p h3{
     font-size: 15px;
      }
+
+     .lst_prod_box .buttons button{
+      margin: auto 10px;
+      padding: 5px 10px;
+      color: #111010be;
+      width: fit-content;
+      font-size: 8px;
+    }
 }
 

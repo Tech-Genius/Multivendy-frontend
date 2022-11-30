@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import $ from 'jquery'
 import { Link } from 'react-router-dom'
 import refreshPage from './CategoryProducts'
+import { AiOutlineMenuFold } from "react-icons/ai";
 
 
 export default class Header extends Component {
@@ -29,7 +30,7 @@ export default class Header extends Component {
       $(".filters").unbind("click").click(function () {
          // $(".nav_items").show();
          $(".sidebar").toggle(500, "swing");
-         $(".sidebar").css('display','grid')
+         $(".sidebar").css('display', 'grid')
 
       })
 
@@ -58,21 +59,43 @@ export default class Header extends Component {
 
                <div className="nav_items">
                   <ul>
-                     
-               <div className="search" id='search_sm_screen'>
-                  <div className="search-bar">
-                     <input type="search" placeholder="Search" />
-                  </div>
-               </div>
+
+                     <div className="search" id='search_sm_screen'>
+                        <div className="search-bar">
+                           <input type="search" placeholder="Search" />
+                        </div>
+                     </div>
                      <li><Link to='' className="item" onClick={refreshPage}>Home</Link></li>
                      <li><Link to='store' className="item" onClick={refreshPage}>Store</Link></li>
-                     <li><Link to='categories' className="item" onClick={refreshPage}>Categories</Link></li>
-                     <li><Link to='' className="item" onClick={refreshPage}>Item</Link></li>
+
+                     <div className="dropdown">
+                     <li><Link to='/' style={{pointerEvents: "none"}} className="item dropdown" onClick={refreshPage}>Login <i className='fa fa-angle-right'></i></Link>
+
+                        <ul className="dropdown_items">
+                           <li><Link to='buyer-login' className="item">Buyer</Link></li>
+                           <li><Link to='vendor-login' className="item">Vendor</Link></li>
+                        </ul>
+
+                     </li>
+                     </div>
+
+                     <div className="dropdown">
+
+                     <li><Link to='/' style={{pointerEvents: "none"}} className="item" onClick={refreshPage}>Sign Up <i className='fa fa-angle-right'></i></Link>
+
+                        <ul className="dropdown_items">
+                           <li><Link to='buyer-signup' className="item">Buyer</Link></li>
+                           <li><Link to='vendor-signup' className="item">Vendor</Link></li>
+                        </ul>
+
+                     </li>
+                     </div>
+
                   </ul>
                </div>
 
                <div className="sm_controls">
-               <div className="sm_cntrl filters"><i className='fa fa-filter'></i></div>
+                  <div className="sm_cntrl filters"><i className='fa fa-filter'></i></div>
                   <div className="sm_cntrl open"><i className='fa fa-bars'></i></div>
                   <div className="sm_cntrl close"><i className='fa fa-times'></i></div>
                </div>

@@ -9,7 +9,7 @@ function Categories(props) {
         window.location.reload();
      }
 
-    const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
+    const baseUrl = 'http://localhost:8000/api'
     const [categories, setCategories] = useState([])
     const [totalResult, setTotalResults] = useState(0)
 
