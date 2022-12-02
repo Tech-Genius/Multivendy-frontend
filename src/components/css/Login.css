@@ -59,8 +59,23 @@
     font-size: 13px;
 }
 
+
+
 .form_item input:focus:invalid{
     border: 1px solid red; 
+}
+
+.error{
+    display: none;
+    color: red;
+    font-size: 13px !important;
+    margin: 0 !important;
+    margin-top: 3px;
+}
+
+.form_item input:focus:invalid ~ .error{
+   color: red !important;
+   display: block;
 }
  
 .form_item input:valid{
@@ -104,6 +119,8 @@ border: 1px solid #1570EF;
 .form_item label span{
     color: red;
 }
+
+
 
 .data{
     display: flex;

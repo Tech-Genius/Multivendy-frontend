@@ -72,8 +72,8 @@ export default class Header extends Component {
                      <li><Link to='/' style={{pointerEvents: "none"}} className="item dropdown" onClick={refreshPage}>Login <i className='fa fa-angle-right'></i></Link>
 
                         <ul className="dropdown_items">
-                           <li><Link to='buyer-login' className="item">Buyer</Link></li>
-                           <li><Link to='vendor-login' className="item">Vendor</Link></li>
+                           <li><Link to='buyer-login' className="item" onClick={refreshPage}>Buyer</Link></li>
+                           <li><Link to='vendor-login' className="item" onClick={refreshPage}>Vendor</Link></li>
                         </ul>
 
                      </li>
@@ -84,8 +84,8 @@ export default class Header extends Component {
                      <li><Link to='/' style={{pointerEvents: "none"}} className="item" onClick={refreshPage}>Sign Up <i className='fa fa-angle-right'></i></Link>
 
                         <ul className="dropdown_items">
-                           <li><Link to='buyer-signup' className="item">Buyer</Link></li>
-                           <li><Link to='vendor-signup' className="item">Vendor</Link></li>
+                           <li><Link to='buyer-signup' className="item" onClick={refreshPage}>Buyer</Link></li>
+                           <li><Link to='vendor-signup' className="item" onClick={refreshPage}>Vendor</Link></li>
                         </ul>
 
                      </li>

@@ -32,6 +32,7 @@
 
 .name{
     display: flex;
+    align-items:start;
     flex-wrap: wrap;
     justify-content: space-between !important;
 }
@@ -43,6 +44,7 @@
     display: grid;
     padding: 10px 0px;
     width: auto;
+    position: relative;
 }
 
 .form_item input[type= 'text'], [type= 'email'], [type= 'phone'], [type= 'password']{
@@ -61,6 +63,19 @@
 
 .form_item input:focus:invalid{
     border: 1px solid red; 
+}
+
+.error{
+    display: none;
+    color: red;
+    font-size: 13px !important;
+    margin: 0 !important;
+    margin-top: 3px;
+}
+
+.form_item input:focus:invalid ~ .error{
+   color: red !important;
+   display: block;
 }
  
 .form_item input:valid{

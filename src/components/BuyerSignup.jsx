@@ -13,11 +13,13 @@ function BuyerSignup() {
                             <div className="form_item" id='first_name'>
                                 <label htmlFor="first_name">First Name <span>*</span></label>
                                 <input type="text" placeholder="Enter your first name" id='first_name' required />
+                                <p className="error">This field is required</p>
                             </div>
 
                             <div className="form_item" id='last_name'>
                                 <label htmlFor="last_name">Last Name <span>*</span></label>
                                 <input type="text" placeholder="Enter your last name" id='last_name' required />
+                                <p className="error">This field is required</p>
                             </div>
                         </div>
 
@@ -25,7 +27,7 @@ function BuyerSignup() {
                             <div className="form_item">
                                 <label htmlFor="email">Email <span>*</span></label>
                                 <input type="email" placeholder="yourname@email.com" required id='email' />
-
+                                <p className="error">This field is required</p>
                             </div>
                         </div>
 
@@ -35,7 +37,7 @@ function BuyerSignup() {
                             <div className="form_item">
                                 <label htmlFor="password">Password <span>*</span></label>
                                 <input type="password" placeholder="Create a new password" required id='password' />
-
+                                <p className="error">This field is required</p>
                             </div>
                         </div>
 
@@ -43,7 +45,7 @@ function BuyerSignup() {
                             <div className="form_item">
                                 <label htmlFor="phone">Phone <span>*</span></label>
                                 <input type="phone" placeholder="Enter your mobile number" required id='phone' />
-
+                                <p className="error">This field is required</p>
                             </div>
                         </div>
 

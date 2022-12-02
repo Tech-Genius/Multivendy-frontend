@@ -15,7 +15,7 @@ function VendorLogin() {
                             <div className="form_item">
                                 <label htmlFor="email">Email <span>*</span></label>
                                 <input type="email" placeholder="yourname@email.com" required id='email' />
-
+<p className="error">This field is required</p>
                             </div>
                         </div>
 
@@ -25,7 +25,7 @@ function VendorLogin() {
                             <div className="form_item">
                                 <label htmlFor="password">Password <span>*</span></label>
                                 <input type="password" placeholder="Create a new password" required id='password' />
-
+                                <p className="error">This field is required</p>
                             </div>
                         </div>
 

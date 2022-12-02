@@ -5,7 +5,7 @@ import Tab from "./Tab";
 
 
 function Search() {
-    const baseUrl = 'http://localhost:8000/api'
+    const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
     const [search, setSearch] = useState({});
     const [data, setData] = useState([]);
 
