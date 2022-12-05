@@ -15,7 +15,7 @@ class Home extends Component {
     componentDidMount() {
         AOS.init();
     }
-
+    
     render() {
 
 
@@ -23,6 +23,7 @@ class Home extends Component {
             <>
 
                 <div className="home">
+
                     <div className="background">
                         <div className="background_inner">
                             <div className="box_wrapper">

@@ -18,6 +18,8 @@ import VendorSignup from './components/VendorSignup';
 import BuyerSignup from './components/BuyerSignup';
 import VendorLogin from './components/VendorLogin';
 import BuyerLogin from './components/BuyerLogin';
+import BestVendors from './components/BestVendors';
+import VendorLogout from './components/VendorLogout';
 
 
 function App() {
@@ -38,8 +40,10 @@ function App() {
             <Route path='vendor-signup' element={< VendorSignup/>} />
             <Route path='buyer-signup' element={< BuyerSignup/>} />
             <Route path='vendor-login' element={< VendorLogin/>} />
+            <Route path='vendor-logout' element={< VendorLogout/>} />
             <Route path='buyer-login' element={< BuyerLogin/>} />
             <Route path='store/:product_id' element={<Detail />} />
+            <Route path='best-sellers' element={<BestVendors />} />
          </Routes>
 
       </>

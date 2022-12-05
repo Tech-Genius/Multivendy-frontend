@@ -1,24 +1,87 @@
 import react from 'react'
 import './css/Signup.css'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
+const baseUrl = 'https://multivendy-backend-production.up.railway.app/api/vendors/'
 function VendorSignup() {
+    const [vendorSignup, setVendorSignup] = useState({
+        'first_name': '',
+        'last_name': '',
+        'email': '',
+        'password': '',
+        'phone': '',
+        'status': ''
+    });
+
+    //change element value
+
+    const handleChange = (event) => {
+        setVendorSignup({
+            ...vendorSignup,
+            [event.target.name]: event.target.value
+        });
+    }
+
+
+
+    //submit form
+    const submitForm = () => {
+        const vendorFormData = new FormData();
+        vendorFormData.append("first_name", vendorSignup.first_name)
+        vendorFormData.append("last_name", vendorSignup.last_name)
+        vendorFormData.append("email", vendorSignup.email)
+        vendorFormData.append("password", vendorSignup.password)
+        vendorFormData.append("phone", vendorSignup.phone)
+
+        try{
+            axios.post(baseUrl, vendorFormData).then((response) => {
+                setVendorSignup(
+                    {
+                        'first_name': '',
+                        'last_name': '',
+                        'email': '',
+                        'password': '',
+                        'phone': '',
+                        'status':'success'
+                    }
+
+                )
+            })
+
+        }catch(error) {
+            console.log(error)
+            setVendorSignup({'status':'error'})
+        }
+
+
+    }
+
+
+    const vendorLoginStatus = localStorage.getItem('vendorLoginStatus')
+    if(vendorLoginStatus=='true'){
+        window.location.href='/store'
+    }
+
     return (
         <div className="signup">
             <div className="signup_inner">
                 <h3>Create A Vendor<span> Account</span></h3>
                 <div className="form_wrapper">
-                    <form action="">
+                    {vendorSignup.status=='success' && <p style={{color:'green'}}>Registration Successful</p>}
+                    {vendorSignup.status=='error' && <p style={{color:'red'}}>Something went wrong, try again</p>}
+                    {/* <form action=""> */}
 
                         <div className="name">
                             <div className="form_item" id='first_name'>
                                 <label htmlFor="first_name">First Name <span>*</span></label>
-                                <input type="text" placeholder="Enter your first name" id='first_name' required />
+                                <input value={vendorSignup.first_name} onChange={handleChange} type="text" placeholder="Enter your first name" name='first_name' id='first_name' required />
                                 <p className="error">This field is required</p>
                             </div>
 
                             <div className="form_item" id='last_name'>
                                 <label htmlFor="last_name">Last Name <span>*</span></label>
-                                <input type="text" placeholder="Enter your last name" id='last_name' required />
+                                <input value={vendorSignup.last_name} onChange={handleChange} type="text" placeholder="Enter your last name" name='last_name' id='last_name' required />
                                 <p className="error">This field is required</p>
                             </div>
                         </div>
@@ -26,18 +89,18 @@ function VendorSignup() {
                         <div className="email">
                             <div className="form_item">
                                 <label htmlFor="email">Email <span>*</span></label>
-                                <input type="email" placeholder="yourname@email.com" required id='email' />
+                                <input value={vendorSignup.email} onChange={handleChange} type="email" placeholder="yourname@email.com" name='email' required id='email' />
                                 <p className="error">This field is required</p>
 
                             </div>
                         </div>
 
-                        
+
 
                         <div className="password">
                             <div className="form_item">
                                 <label htmlFor="password">Password <span>*</span></label>
-                                <input type="password" placeholder="Create a new password" required id='password' />
+                                <input value={vendorSignup.password} onChange={handleChange} type="password" placeholder="Create a new password" name='password' required id='password' />
                                 <p className="error">This field is required</p>
 
                             </div>
@@ -46,7 +109,7 @@ function VendorSignup() {
                         <div className="phone">
                             <div className="form_item">
                                 <label htmlFor="phone">Phone <span>*</span></label>
-                                <input type="phone" placeholder="Enter your mobile number" required id='phone' />
+                                <input value={vendorSignup.phone} onChange={handleChange} type="phone" placeholder="Enter your mobile number" name='phone' required id='phone' />
                                 <p className="error">This field is required</p>
 
                             </div>
@@ -73,11 +136,11 @@ function VendorSignup() {
 
                         <div className="button">
                             <div className="form_item">
-                                <button type="submit" id='btn__submit'>Sign Up</button>
+                                <button onClick={submitForm} type='submit'>Sign Up</button>
                             </div>
                         </div>
 
-                    </form>
+                    {/* </form> */}
                 </div>
             </div>
         </div>

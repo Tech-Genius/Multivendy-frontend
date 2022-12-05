@@ -21,7 +21,9 @@
   }
  .lst_prod_box:hover .buttons{
 transition: 3s;
-display: grid;
+display: flex;
+flex-wrap: wrap !important;
+justify-content: center;
 }
 .lst_prod_box:hover .img img{
 
@@ -68,7 +70,7 @@ margin: 0;
     animation: zoom-in-zoom-out 1s ease;
     place-items: center;
     height: 100%;
-    background-color: #1110105e;
+    background: linear-gradient(to right,rgba(8, 34, 104, 0.411) 40%, rgba(14, 119, 204, 0.445));
 
   }
 
@@ -97,7 +99,7 @@ margin: 0;
 
 
   .lst_prod_box .buttons button:hover{
-    background-color:#111010be;
+    background:linear-gradient(45deg,#eb870d 50%, rgb(15, 62, 189) 50%);
     color: white;
     transition: 1s;
     outline: none;
@@ -137,7 +139,7 @@ margin: 0;
 @media screen and (max-width:439px){
 
   .lst_prod_box{
-    width: 40%;
+    width: 43%;
   }
   .t_and_p h3{
     font-size: 15px;
@@ -149,6 +151,15 @@ margin: 0;
       color: #111010be;
       width: fit-content;
       font-size: 8px;
+    }
+
+    .lst_prod_box{
+      padding-bottom: 50px;
+      margin: 20px 5px; 
+    }
+
+    .lst_prod_box .img{
+     padding: 10px 0px;
     }
 }
 

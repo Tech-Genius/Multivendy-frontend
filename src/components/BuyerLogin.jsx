@@ -1,37 +1,80 @@
 import react from 'react'
 import './css/Login.css'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import VendorLogin from './VendorLogin'
 
+const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
 function BuyerLogin() {
+    const [buyerLogin, setBuyerLogin] = useState({
+        email: '',
+        password: ''
+    })
+    const handleChange = (event) => {
+        setBuyerLogin({
+            ...buyerLogin,
+            [event.target.name]: event.target.value
+
+
+        })
+
+    }
+
+    const submitForm = () => {
+        const buyerFormData = new FormData
+        buyerFormData.append('email', buyerLogin.email)
+        buyerFormData.append('password', buyerLogin.password)
+
+        try {
+            axios.post(baseUrl + '/customer-login', buyerFormData).then((res) => {
+                if (res.data.bool == true) {
+                    localStorage.setItem('buyerLoginStatus', true)
+                    window.location.href = '/store'
+                }
+
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+    const buyerLoginStatus = localStorage.getItem('buyerLoginStatus')
+    if(buyerLoginStatus=='true'){
+        window.location.href='/store'
+    }
+
+
     return (
         <div className="login">
             <div className="login_inner">
-            <h3>Login To You Buyer<span> Account</span></h3>
+                <h3>Login To You Buyer<span> Account</span></h3>
                 <div className="form_wrapper">
-                    <form action="">
+                    {/* <form action=""> */}
 
 
 
 
                     <div className="email">
-                            <div className="form_item">
-                                <label htmlFor="email">Email <span>*</span></label>
-                                <input type="email" placeholder="yourname@email.com" required id='email' />
-                                <p className="error">This field is required</p>
-                            </div>
+                        <div className="form_item">
+                            <label htmlFor="email">Email <span>*</span></label>
+                            <input name='email' value={buyerLogin.email} onChange={handleChange} type="email" placeholder="yourname@email.com" required id='email' />
+                            <p className="error">This field is required</p>
                         </div>
+                    </div>
 
-                        
 
-                        <div className="password">
-                            <div className="form_item">
-                                <label htmlFor="password">Password <span>*</span></label>
-                                <input type="password" placeholder="Create a new password" required id='password' />
-                                <p className="error">This field is required</p>
-                            </div>
+
+                    <div className="password">
+                        <div className="form_item">
+                            <label htmlFor="password">Password <span>*</span></label>
+                            <input value={buyerLogin.password} onChange={handleChange} name='password' type="password" placeholder="Enter your password" required id='password' />
+                            <p className="error">This field is required</p>
                         </div>
+                    </div>
 
 
-                        {/* <div className="message">
+                    {/* <div className="message">
 
                             <div className="form_item">
                                 <label htmlFor="message">Message</label>
@@ -40,7 +83,7 @@ function BuyerLogin() {
                         </div> */}
 
 
-                        {/* <div className="data">
+                    {/* <div className="data">
                             <div className="form_item_checkbox">
                                 <input type="checkbox" className='checkbox' required />
                             </div>
@@ -50,13 +93,13 @@ function BuyerLogin() {
                             </div>
                         </div> */}
 
-                        <div className="button">
-                            <div className="form_item">
-                                <button type="submit" id='btn__submit'>Login</button>
-                            </div>
+                    <div className="button">
+                        <div className="form_item">
+                            <button onClick={submitForm} type="submit" id='btn__submit'>Login</button>
                         </div>
+                    </div>
 
-                    </form>
+                    {/* </form> */}
                 </div>
             </div>
         </div>

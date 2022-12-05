@@ -45,52 +45,61 @@ export default class Header extends Component {
 
 
    render() {
+      const vendorLoginStatus = localStorage.getItem('vendorLoginStatus')
+      const buyerLoginStatus = localStorage.getItem('buyerLoginStatus')
 
       return (
          <div className="header">
             <nav>
-               <div className="logo"><h3>Multivendy</h3></div>
-
+               <div className="logo"><Link to={''}><h3>Multivendy</h3></Link></div>
+               {/* 
                <div className="search" id='search_lg_screen'>
                   <div className="search-bar">
                      <input type="search" placeholder="Search" />
                   </div>
-               </div>
+               </div> */}
 
                <div className="nav_items">
                   <ul>
 
-                     <div className="search" id='search_sm_screen'>
+                     {/* <div className="search" id='search_sm_screen'>
                         <div className="search-bar">
                            <input type="search" placeholder="Search" />
                         </div>
-                     </div>
+                     </div> */}
                      <li><Link to='' className="item" onClick={refreshPage}>Home</Link></li>
                      <li><Link to='store' className="item" onClick={refreshPage}>Store</Link></li>
 
-                     <div className="dropdown">
-                     <li><Link to='/' style={{pointerEvents: "none"}} className="item dropdown" onClick={refreshPage}>Login <i className='fa fa-angle-right'></i></Link>
+                     {vendorLoginStatus || buyerLoginStatus != 'true' &&
+                        <>
+                           <div className="dropdown">
+                              <li><Link to='/' style={{ pointerEvents: "none" }} className="item dropdown" onClick={refreshPage}>Login <i className='fa fa-angle-right'></i></Link>
 
-                        <ul className="dropdown_items">
-                           <li><Link to='buyer-login' className="item" onClick={refreshPage}>Buyer</Link></li>
-                           <li><Link to='vendor-login' className="item" onClick={refreshPage}>Vendor</Link></li>
-                        </ul>
+                                 <ul className="dropdown_items">
+                                    <li><Link to='buyer-login' className="item" onClick={refreshPage}>Buyer</Link></li>
+                                    <li><Link to='vendor-login' className="item" onClick={refreshPage}>Vendor</Link></li>
+                                 </ul>
 
-                     </li>
-                     </div>
+                              </li>
+                           </div>
 
-                     <div className="dropdown">
 
-                     <li><Link to='/' style={{pointerEvents: "none"}} className="item" onClick={refreshPage}>Sign Up <i className='fa fa-angle-right'></i></Link>
+                           <div className="dropdown">
 
-                        <ul className="dropdown_items">
-                           <li><Link to='buyer-signup' className="item" onClick={refreshPage}>Buyer</Link></li>
-                           <li><Link to='vendor-signup' className="item" onClick={refreshPage}>Vendor</Link></li>
-                        </ul>
+                              <li><Link to='/' style={{ pointerEvents: "none" }} className="item" onClick={refreshPage}>Sign Up <i className='fa fa-angle-right'></i></Link>
 
-                     </li>
-                     </div>
+                                 <ul className="dropdown_items">
+                                    <li><Link to='buyer-signup' className="item" onClick={refreshPage}>Buyer</Link></li>
+                                    <li><Link to='vendor-signup' className="item" onClick={refreshPage}>Vendor</Link></li>
+                                 </ul>
 
+                              </li>
+                           </div>
+                        </>
+                     }
+                     {vendorLoginStatus || buyerLoginStatus == 'true' &&
+                        <li><Link to='vendor-logout' className="item">Logout</Link></li>
+                     }
                   </ul>
                </div>
 

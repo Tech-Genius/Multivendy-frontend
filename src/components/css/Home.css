@@ -32,8 +32,9 @@
     width: auto;
     justify-self: center;
   }
+
   .box_wrapper #text{
-    width: 75%;
+    width: 65%;
   }
   .box_wrapper .box h3{
     font-size: 45px;

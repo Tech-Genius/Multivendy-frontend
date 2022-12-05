@@ -62,9 +62,15 @@ function Detail() {
                 <div className="prod_detail_box" id="img">
                     <Swiper
                         style={{
-                            "--swiper-navigation-size": "25px",
-                            "--swiper-navigation-color": "#171d2e",
+                            "--swiper-navigation-size": "15px",
+                            "--swiper-navigation-color": "white",
+                            "--swiper-pagination-size": "28px",
+                            "--swiper-pagination-color": "#eb870d",
+                         
                         }}
+                        pagination={{
+                            dynamicBullets: true,
+                          }}
                         modules={[Pagination, Navigation]}
                         navigation={true}
                         slidesPerView={1}
