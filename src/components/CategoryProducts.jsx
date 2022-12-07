@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import category from './Categories'
 
 function CategoryProducts(props) {
-    const baseUrl = 'http://localhost:8000/api'
+    const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
     const [products, setProducts] = useState([])
     const [totalResult, setTotalResults] = useState(0)
     const {category_id} = useParams();

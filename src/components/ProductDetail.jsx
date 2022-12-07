@@ -10,7 +10,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import axios from 'axios'
 function Detail() {
-    const baseUrl = 'http://localhost:8000/api'
+    const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
     const [product, setProduct] = useState([]);
     const [featuredImage, setFeaturedImage] = useState()
     // const [totalResult, setTotalResults] = useState(0)

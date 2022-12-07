@@ -3,7 +3,7 @@ import './css/Signup.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:8000/api/vendors/'
+const baseUrl = 'https://multivendy-backend-production.up.railway.app/api/vendors/'
 function VendorSignup() {
     const [vendorSignup, setVendorSignup] = useState({
         'first_name': '',

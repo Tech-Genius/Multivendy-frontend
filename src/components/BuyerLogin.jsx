@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import VendorLogin from './VendorLogin'
 
-const baseUrl = 'http://localhost:8000/api'
+const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
 function BuyerLogin() {
     const [buyerLogin, setBuyerLogin] = useState({
         email: '',

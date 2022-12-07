@@ -8,7 +8,7 @@ import { BsArrowUpRightCircle } from "react-icons/bs";
 import { HiBars3BottomRight } from "react-icons/hi2";
 
 
-const baseUrl = 'http://localhost:8000/api'
+const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
 function AddProduct() {
 
     const [cate, setCate] = useState([])
