@@ -190,6 +190,7 @@ ul.dropdown_items {
     margin-top: 70px !important;
     right: 0;
     margin: 0;
+    z-index: 20000;
   }
 
 

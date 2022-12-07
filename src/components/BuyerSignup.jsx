@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 
 
-const baseUrl = 'https://multivendy-backend-production.up.railway.app/api/customers/'
+const baseUrl = 'http://localhost:8000/api/customers/'
 function BuyerSignup() {
 
     const [buyerSignup, setBuyerSignup] = useState({

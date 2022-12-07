@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 
-const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
+const baseUrl = 'http://localhost:8000/api'
 function VendorLogin() {
 
     const [vendorLogin, setVendorLogin] = useState({
         email: '',
-        password: ''
+        password: '',
     });
 
     const handleChange = (event) => {
@@ -27,7 +27,7 @@ function VendorLogin() {
             axios.post(baseUrl + '/vendor-login', vendorFormData).then((res) => {
                 if (res.data.bool == true){
                     localStorage.setItem('vendorLoginStatus',true)
-                    window.location.href='/store'
+                    window.location.href='/vendor-login'
                 }
             })
         } catch (error) {
@@ -39,7 +39,7 @@ function VendorLogin() {
 
     const vendorLoginStatus = localStorage.getItem('vendorLoginStatus')
     if(vendorLoginStatus=='true'){
-        window.location.href='/store'
+        window.location.href='/vendor-dashboard'
     }
 
 
@@ -51,7 +51,8 @@ function VendorLogin() {
                     {/* <form action="" > */}
 
 
-
+                    {vendorLogin.status=='success' && <p style={{color:'green'}}>Logged Successfully</p>}
+                    {vendorLogin.status=='error' && <p style={{color:'red'}}>Something went wrong, try again</p>}
                         <div className="email">
                             <div className="form_item">
                                 <label htmlFor="email">Email <span>*</span></label>

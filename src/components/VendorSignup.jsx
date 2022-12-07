@@ -3,7 +3,7 @@ import './css/Signup.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const baseUrl = 'https://multivendy-backend-production.up.railway.app/api/vendors/'
+const baseUrl = 'http://localhost:8000/api/vendors/'
 function VendorSignup() {
     const [vendorSignup, setVendorSignup] = useState({
         'first_name': '',
@@ -47,6 +47,9 @@ function VendorSignup() {
                     }
 
                 )
+
+                localStorage.setItem('vendorLoginStatus',true)
+                window.location.href='/vendor-login'
             })
 
         }catch(error) {
@@ -60,7 +63,7 @@ function VendorSignup() {
 
     const vendorLoginStatus = localStorage.getItem('vendorLoginStatus')
     if(vendorLoginStatus=='true'){
-        window.location.href='/store'
+        window.location.href='/vendor-dashboard'
     }
 
     return (
@@ -68,7 +71,7 @@ function VendorSignup() {
             <div className="signup_inner">
                 <h3>Create A Vendor<span> Account</span></h3>
                 <div className="form_wrapper">
-                    {vendorSignup.status=='success' && <p style={{color:'green'}}>Registration Successful</p>}
+                    {vendorSignup.status=='success' && <p style={{color:'green'}}>Registration successful, redirecting to dashboard</p>}
                     {vendorSignup.status=='error' && <p style={{color:'red'}}>Something went wrong, try again</p>}
                     {/* <form action=""> */}
 

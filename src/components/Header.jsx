@@ -6,6 +6,7 @@ import refreshPage from './CategoryProducts'
 import { AiOutlineMenuFold } from "react-icons/ai";
 
 
+
 export default class Header extends Component {
 
    jQuerycode = () => {
@@ -47,6 +48,7 @@ export default class Header extends Component {
    render() {
       const vendorLoginStatus = localStorage.getItem('vendorLoginStatus')
       const buyerLoginStatus = localStorage.getItem('buyerLoginStatus')
+      var user = JSON.parse(localStorage.getItem('user'))
 
       return (
          <div className="header">
@@ -61,7 +63,7 @@ export default class Header extends Component {
 
                <div className="nav_items">
                   <ul>
-
+                 
                      {/* <div className="search" id='search_sm_screen'>
                         <div className="search-bar">
                            <input type="search" placeholder="Search" />
@@ -70,7 +72,7 @@ export default class Header extends Component {
                      <li><Link to='' className="item" onClick={refreshPage}>Home</Link></li>
                      <li><Link to='store' className="item" onClick={refreshPage}>Store</Link></li>
 
-                     {vendorLoginStatus || buyerLoginStatus != 'true' &&
+                     {vendorLoginStatus != 'true' && buyerLoginStatus != 'true' &&
                         <>
                            <div className="dropdown">
                               <li><Link to='/' style={{ pointerEvents: "none" }} className="item dropdown" onClick={refreshPage}>Login <i className='fa fa-angle-right'></i></Link>
@@ -97,8 +99,15 @@ export default class Header extends Component {
                            </div>
                         </>
                      }
-                     {vendorLoginStatus || buyerLoginStatus == 'true' &&
+
+
+
+                     
+                     {vendorLoginStatus == 'true' &&
                         <li><Link to='vendor-logout' className="item">Logout</Link></li>
+                     }
+                     {buyerLoginStatus == 'true' &&
+                        <li><Link to='buyer-logout' className="item">Logout</Link></li>
                      }
                   </ul>
                </div>

@@ -8,7 +8,7 @@ import Categories from './Categories'
 import { Link } from 'react-router-dom'
 import Search from './Search';
 function Store(props) {
-    const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
+    const baseUrl = 'http://localhost:8000/api'
     const [products, setProducts] = useState([])
     const [totalResult, setTotalResults] = useState(0)
 

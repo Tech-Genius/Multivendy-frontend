@@ -1,12 +1,13 @@
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
+
 }
 
 ::-webkit-scrollbar-thumb {
-  background-image: linear-gradient( rgb(14, 118, 204), rgb(8, 33, 104) 50%);
-  border-radius: 10px;
-  height: 2px;
-  box-shadow: 3px 3px 3px grey;
+background-color: gainsboro;
+  height: 0px;
+ width: 0px !important;
+border-radius: 5px;
 }
 .store{
     padding-top: 70px;

@@ -10,7 +10,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import axios from 'axios'
 function Detail() {
-    const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
+    const baseUrl = 'http://localhost:8000/api'
     const [product, setProduct] = useState([]);
     const [featuredImage, setFeaturedImage] = useState()
     // const [totalResult, setTotalResults] = useState(0)
@@ -58,7 +58,7 @@ function Detail() {
         <div className="product_detail">
 
             <div className="prod_detail_inner">
-                
+
                 <div className="prod_detail_box" id="img">
                     <Swiper
                         style={{
@@ -66,16 +66,16 @@ function Detail() {
                             "--swiper-navigation-color": "white",
                             "--swiper-pagination-size": "28px",
                             "--swiper-pagination-color": "#eb870d",
-                         
+
                         }}
                         pagination={{
                             dynamicBullets: true,
-                          }}
+                        }}
                         modules={[Pagination, Navigation]}
                         navigation={true}
                         slidesPerView={1}
                         slidesPerGroup={1}
-                       
+
                         loop={true}
                     >
                         <SwiperSlide>
@@ -85,19 +85,23 @@ function Detail() {
 
                         <SwiperSlide>
                             <img src={product.featured_image1} alt="product_title" />
-                            
+
                         </SwiperSlide>
                         <SwiperSlide>
                             <img src={product.featured_image2} alt="product_title" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                            <img src={product.featured_image3} alt="product_title" />
-                            </SwiperSlide>
-                             <SwiperSlide>
-                            <img src={product.featured_image4} alt="product_title" />
-
                         </SwiperSlide>
+                        {product.featured_image3 &&
+                            <SwiperSlide>
+                                <img src={product.featured_image3} alt="product_title" />
+                            </SwiperSlide>
+                        }
+                        {product.featured_image4 &&
+                            <SwiperSlide>
 
+                                <img src={product.featured_image4} alt="product_title" />
+
+                            </SwiperSlide>
+                        }
 
                     </Swiper>
 
@@ -114,8 +118,12 @@ function Detail() {
 
                         <img src={product.featured_image1} />
                         <img src={product.featured_image2} />
-                        <img src={product.featured_image3} />
-                        <img src={product.featured_image4} />
+                        {product.featured_image3 &&
+                            <img src={product.featured_image3} />
+                        }
+                        {product.featured_image4 &&
+                            <img src={product.featured_image4} />
+                        }
                     </div>
                 </div>
 
