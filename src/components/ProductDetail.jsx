@@ -12,10 +12,10 @@ import axios from 'axios'
 function Detail() {
     const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
     const [product, setProduct] = useState([]);
-    const [featuredImage, setFeaturedImage] = useState()
+    const [productTags, setProductTags] = useState([])
     // const [totalResult, setTotalResults] = useState(0)
     let { product_id } = useParams();
-    let { product_title } = useParams();
+  
 
     console.log(product)
 
@@ -24,6 +24,7 @@ function Detail() {
             axios.get(baseUrl + '/store/' + product_id)
                 .then((res) => {
                     setProduct(res.data)
+                    setProductTags(res.data.tag_list)
                 })
         } catch (error) {
             console.log(error)
@@ -32,6 +33,12 @@ function Detail() {
 
 
     }, [])
+
+    const tagLinks = []
+    for(let i=0; i<productTags.length; i++){
+        let tag = productTags[i].trim();
+        tagLinks.push(<Link style={{margin:"5px"}} to={`/store/tags/${tag}`}>{tag}</Link>)
+    }
 
 
 
@@ -113,7 +120,8 @@ function Detail() {
                     <p id="price">Price: &#8358;{product.price}</p>
 
                     <Link><button>Add to cart</button></Link>
-
+                   <p> Tags</p>
+<p>{tagLinks}</p>
                     <div className="featured_img">
 
                         <img src={product.featured_image1} />

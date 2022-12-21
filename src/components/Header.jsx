@@ -69,17 +69,17 @@ export default class Header extends Component {
                            <input type="search" placeholder="Search" />
                         </div>
                      </div> */}
-                     <li><Link to='' className="item" onClick={refreshPage}>Home</Link></li>
-                     <li><Link to='store' className="item" onClick={refreshPage}>Store</Link></li>
+                     <li><Link to='' className="item" >Home</Link></li>
+                     <li><Link to='store' className="item" >Store</Link></li>
 
                      {vendorLoginStatus != 'true' && buyerLoginStatus != 'true' &&
                         <>
                            <div className="dropdown">
-                              <li><Link to='/' style={{ pointerEvents: "none" }} className="item dropdown" onClick={refreshPage}>Login <i className='fa fa-angle-right'></i></Link>
+                              <li><Link to='/' style={{ pointerEvents: "none" }} className="item dropdown" >Login <i className='fa fa-angle-right'></i></Link>
 
                                  <ul className="dropdown_items">
-                                    <li><Link to='buyer-login' className="item" onClick={refreshPage}>Buyer</Link></li>
-                                    <li><Link to='vendor-login' className="item" onClick={refreshPage}>Vendor</Link></li>
+                                    <li><Link to='buyer-login' className="item" >Buyer</Link></li>
+                                    <li><Link to='vendor-login' className="item" >Vendor</Link></li>
                                  </ul>
 
                               </li>
@@ -88,11 +88,11 @@ export default class Header extends Component {
 
                            <div className="dropdown">
 
-                              <li><Link to='/' style={{ pointerEvents: "none" }} className="item" onClick={refreshPage}>Sign Up <i className='fa fa-angle-right'></i></Link>
+                              <li><Link to='/' style={{ pointerEvents: "none" }} className="item" >Sign Up <i className='fa fa-angle-right'></i></Link>
 
                                  <ul className="dropdown_items">
-                                    <li><Link to='buyer-signup' className="item" onClick={refreshPage}>Buyer</Link></li>
-                                    <li><Link to='vendor-signup' className="item" onClick={refreshPage}>Vendor</Link></li>
+                                    <li><Link to='buyer-signup' className="item" >Buyer</Link></li>
+                                    <li><Link to='vendor-signup' className="item" >Vendor</Link></li>
                                  </ul>
 
                               </li>

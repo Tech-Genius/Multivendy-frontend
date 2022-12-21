@@ -7,14 +7,22 @@ import Single from './Single';
 import Categories from './Categories'
 import { Link } from 'react-router-dom'
 import Search from './Search';
+import Sidebar from './Sidebar';
+import { HiBars3BottomRight } from "react-icons/hi2";
+import { FaSearch, FaRegTimesCircle } from "react-icons/fa";
 function Store(props) {
     const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
     const [products, setProducts] = useState([])
     const [totalResult, setTotalResults] = useState(0)
 
+    const [isNavExpanded, setIsNavExpanded] = useState(false)
+    const close = () => {
+        setIsNavExpanded(false);
+    };
+
     useEffect(() => {
         fetchData(baseUrl + '/store');
-        document.title='Store';
+        document.title = 'Store';
 
     }, []);
 
@@ -25,14 +33,21 @@ function Store(props) {
                 setProducts(data.results)
                 setTotalResults(data.count)
 
+                if (data === null) {
+                    return <p>Loading...</p>;
+                }
             });
 
 
     }
+
+
     function changeUrl(baseurl) {
         fetchData(baseurl)
 
     }
+
+
 
     var links = []
     var limit = 1
@@ -60,16 +75,26 @@ function Store(props) {
     return (
 
         <div className="store">
-          
-            <div className="sidebar">
-                <h3 >Filter By</h3>
-                
+
+            <div className="category_sm_cntrl">
+                {!isNavExpanded ?
+                    <HiBars3BottomRight className='category_cntrl' onClick={() =>
+                        setIsNavExpanded(!isNavExpanded)
+                    } /> : <FaRegTimesCircle className='category_cntrl' onClick={() =>
+                        setIsNavExpanded(!isNavExpanded)
+                    } />
+                }
+            </div>
+
+            <div className={isNavExpanded ? 'sm_screen_sidebar' : 'sidebar'}>
+
+
                 <div className="sidebar_inner">
                     <div className="cate">
-                        <h5>Category</h5>
-                        <Categories></Categories>
+                        <h5>Filters</h5>
+                        <Categories onClick={close}></Categories>
                     </div>
-
+                    {/* 
                     <div className="price">
                         <h5>Price</h5>
                         <input type="range" />
@@ -83,15 +108,15 @@ function Store(props) {
                             <div className="color" id='t'></div>
                             <div className="color" id='fh'></div>
                         </div>
-                    </div>
-                
-    
-            </div>
+                    </div> */}
+
+
+                </div>
             </div>
 
             <div className="st_prod">
-                <div className="prod_heading"  id='latest'><h3>Latest Arivals</h3></div>
-              
+                <div className="prod_heading" id='latest'><h3>Latest Arivals</h3></div>
+
                 <div className="st_prod_inner" id='latest'>
                     <div className="st_prod_box">
                         {
@@ -133,6 +158,9 @@ function Store(props) {
 
             </div>
 
+            <div className="import_user_links">
+                <Sidebar />
+            </div>
 
 
         </div>

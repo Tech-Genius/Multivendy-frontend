@@ -2,12 +2,16 @@ import reactLogo from './assets/react.svg'
 import './css/Categories.css'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { HiBars3BottomRight } from "react-icons/hi2";
+import { FaSearch, FaRegTimesCircle } from "react-icons/fa";
+
+// import close from './Store'
 
 
 function Categories(props) {
-    const refreshPage = ()=>{
-        window.location.reload();
-     }
+        
+    // const [isNavExpanded, setIsNavExpanded] = useState(false)
+ 
 
     const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
     const [categories, setCategories] = useState([])
@@ -29,27 +33,19 @@ function Categories(props) {
 
 
     }
-    function changeUrl(baseurl) {
-        fetchData(baseurl)
-
-    }
-
-    var links = []
-    for (let i = 1; i <= totalResult; i++) {
-        links.push(<div className="paginate"><Link onClick={() => changeUrl(baseUrl + `/categories/?page=${i}`)} to={`/categories/?page=${i}`}><p>{i}</p></Link></div>)
-    }
-
 
 
 
 
     return (
-        <div className="category">
+        
+        <div className="category" >
+            
             {
                 categories.map((category)=>
 
-                    <div className="category_box" onClick={refreshPage}>
-                        <p><Link to={`/category/${category.title}/${category.id}`}>{category.title}</Link></p>
+                    <div className="category_box">
+                        <p><Link  to={`/category/${category.title}/${category.id}`} className="link_to_cate">{category.title}</Link></p>
                     </div>
                 )
             }

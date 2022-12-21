@@ -1,3 +1,20 @@
 .category{
-   
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  }
+
+.category_box{
+  margin:10px 10px;
+  width: fit-content;
+}
+
+.category_box p{
+  width: fit-content;
+}
+  .link_to_cate{
+    color: white;
+    text-align: center;
+    border: 1px dotted rgba(255, 255, 255, 0.568);
+    padding: 10px;
   }

@@ -3,7 +3,7 @@ import './App.css'
 import "bootstrap/dist/css/bootstrap.css";
 import Header from './components/Header'
 import Home from './components/Home'
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Store from './components/Store'
@@ -23,23 +23,26 @@ import VendorLogout from './components/VendorLogout';
 import BuyerLogout from './components/BuyerLogout';
 import AddProduct from './components/AddProduct';
 import VendorDashboard from './components/VendorDashboard';
-
+import TagProducts from './components/TagProducts';
 
 function App() {
+   const location = useLocation()
 
 
    return (
       <>
-         <Header />
-         {/* <Sidebar /> */}
+        {location.pathname == "vendor-login" || location.pathname == "/"  && (<Header />) }
+        
+      
 
          <Routes>
             <Route path='/' element={<Home />} />
             <Route path='store' element={<Store />} />
             <Route path='single' element={<Single />} />
+            <Route path='sidebar' element={<Sidebar />} />
             <Route path='categories' element={<Categories />} />
             <Route path='category/:category_title/:category_id' element={<CategoryProducts />} />
-            <Route path='search/search/?=:search' element={< Search/>} />
+            <Route path='store/tags/:tag' element={<TagProducts/>} />
             <Route path='vendor-signup' element={< VendorSignup/>} />
             <Route path='buyer-signup' element={< BuyerSignup/>} />
             <Route path='vendor-login' element={< VendorLogin/>} />

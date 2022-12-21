@@ -8,21 +8,13 @@ import Categories from './Categories'
 import { Link } from 'react-router-dom'
 import { useParams } from "react-router-dom";
 import category from './Categories'
-import { HiBars3BottomRight } from "react-icons/hi2";
-import { FaSearch, FaRegTimesCircle } from "react-icons/fa";
 import Sidebar from './Sidebar';
-function CategoryProducts(props) {
-    const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
+
+function TagProducts(props) {
+    const baseUrl = 'http://localhost:8000/api'
     const [products, setProducts] = useState([])
     const [totalResult, setTotalResults] = useState(0)
-    const { category_id } = useParams();
-    const { category_title } = useParams();
-
-    
-    const [isCategoryExpanded, setIsCategoryExpanded] = useState(false)
-    const close = () => {
-        setIsCategoryExpanded(false);
-    };
+    const { tag } = useParams();
 
     // const [totalResult, setTotalResults] = useState(0)
 
@@ -32,8 +24,8 @@ function CategoryProducts(props) {
 
 
     useEffect(() => {
-        fetchData(baseUrl + '/store-filter/?category=' + category_id);
-    }, [category_id]);
+        fetchData(baseUrl + '/store/tags/' + tag);
+    }, []);
 
     function fetchData(baseurl) {
         fetch(baseurl)
@@ -42,27 +34,21 @@ function CategoryProducts(props) {
                 setProducts(data.results)
                 setTotalResults(data.count)
 
-                if (data.results == 0) {
-                    console.log("nodata")
-                    return (<p style={{ marginTop: "100px" }}>No Data Here</p>)
-
-                }
-
-
             });
 
+console.log(totalResult)
+    }
+    // function changeUrl(baseurl) {
+    //     fetchData(baseurl)
 
-    }
-    function changeUrl(baseurl) {
-        fetchData(baseurl)
+    // }
 
-    }
-    var links = []
-    var limit = 1
-    var totalLinks = totalResult / limit
-    for (let i = 1; i <= totalResult; i++) {
-        links.push(<div className="paginate"><Link onClick={() => changeUrl(baseUrl + `/store/?page=${i}`)} to={`/store/?page=${i}`}><p>{i}</p></Link></div>)
-    }
+    // var links = []
+    // var limit = 1
+    // var totalLinks = totalResult / limit
+    // for (let i = 1; i <= totalResult; i++) {
+    //     links.push(<div className="paginate"><Link onClick={() => changeUrl(baseUrl + `/store/?page=${i}`)} to={`/store/?page=${i}`}><p>{i}</p></Link></div>)
+    // }
 
 
     // const [categories, setCategories] = useState([])
@@ -83,17 +69,7 @@ function CategoryProducts(props) {
     return (
 
         <div className="store">
-            <div className="category_sm_cntrl">
-                {!isCategoryExpanded ?
-                    <HiBars3BottomRight className='category_cntrl' onClick={() =>
-                        setIsCategoryExpanded(!isCategoryExpanded)
-                    } /> : <FaRegTimesCircle className='category_cntrl' onClick={() =>
-                        setIsCategoryExpanded(!isCategoryExpanded)
-                    } />
-                }
-            </div>
-
-            <div className={isCategoryExpanded ? 'sm_screen_sidebar' : 'sidebar'}>
+            <div className="sidebar">
                 {/* <h3 >Filter By</h3> */}
                 <div className="sidebar_inner">
                     <div className="cate">
@@ -129,12 +105,10 @@ function CategoryProducts(props) {
             </div>
             <div className="st_prod">
 
-
-
                 {
 
 
-                    <div className="prod_heading" id='latest'><h3>Latest Arivals <span>({category_title})</span> </h3>
+                    <div className="prod_heading" id='latest'><h3>Found {totalResult} <span>({tag})</span>  </h3>
 
 
                     </div>
@@ -153,41 +127,15 @@ function CategoryProducts(props) {
 
                 </div>
 
-
-                <div className="prod_heading" id='best_sellers'><h3>Best Sellers</h3></div>
-                <div className="st_prod_inner" id='best_sellers'>
-                    <div className="st_prod_box">
-                        {
-                            products.map((product) => <Single product={product} />)
-                        }
-
-
-
-                    </div>
-
-                </div>
-
-
-
-
-
-
-
-
-                <div className="pagination">
-                    {/* {links} */}
-
-                </div>
-
             </div>
-
-
-
             <div className="import_user_links">
                 <Sidebar />
             </div>
+
+
+
         </div>
     )
 }
 
-export default CategoryProducts
+export default TagProducts
