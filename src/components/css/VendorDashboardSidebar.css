@@ -15,7 +15,7 @@
     width: 17%;
     right: 0;
     position: fixed;
-    margin-top: 10px;
+  
     border-left: 1px solid rgba(160, 157, 157, 0.712);
     overflow: auto;
     height: fit-content;
@@ -23,7 +23,9 @@
     display: grid;
     padding: 50px 0px;
     justify-content: center;
-    height: 95% !important;
+    height: 100% !important;
+    place-items: center;
+    background-image: linear-gradient(to right, rgb(8, 33, 104) 40%, rgb(14, 118, 204));
 }
 
 .vendor_sidebar_inner .vendor_sidebar {
@@ -47,11 +49,12 @@
     grid-template-columns: 1fr;
     height: fit-content;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .user h3 {
     font-size: 16px;
-    color: rgb(15, 62, 189);
+    color: white;
     margin-top: 5px !important;
     margin: 0;
 }
@@ -64,7 +67,7 @@
     height: 70px;
     width: 70px;
     border-radius: 50%;
-    border: 1px solid grey;
+    border: 1px solid rgba(255, 255, 255, 0.658);
     display: grid;
     justify-content: center;
     place-items: center;
@@ -78,18 +81,34 @@
 
 .vendor_sidebar_inner .vendor_sidebar_sm .user img {
     height: 50px;
-
+margin-bottom: 50px;
 }
 
-.vendor_sidebar_inner .links h3 {
-    font-size: 18px;
-    color: rgb(15, 62, 189);
-    margin: 15px 0px;
+.vendor_sidebar_inner .links h3 .vendor_links{
+    font-size: 16px;
+    color: white;
+    border: 1px dotted rgba(255, 255, 255, 0.678);
+    padding: 7px 15px;
+    border-radius: 5px;
+}
+
+.vendor_sidebar_inner .links{
+    display: grid;
+   justify-content: center;
+   width: 100%;
+   text-align: center;
+}
+
+.vendor_sidebar_inner .links h3{
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
 }
 
 .vendor_sidebar_inner .links h3 .link-out {
-    color: #eb870d;
+    color: white;
     font-weight: 1200;
+    font-weight: 800;
 }
 
 .vendor_sidebar_inner .vendor_bottom_bar {
@@ -184,25 +203,37 @@ align-items: center;
     }
 
     .vendor_bottom_bar .bottom_bar_links {
-        width: 90%;
+        width: 100%;
         justify-self: center;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        align-items: flex-start;
+        justify-content:space-around;
+  
+        
     }
 
     .bottom_bar_links .link {
+     display: grid;
+       width: fit-content;
+        justify-self: center; 
         text-align: center;
     }
+    .vendor_sm_links{
+width: 100%;
+justify-self: center;
+border: 1px dotted rgba(255, 255, 255, 0.24);
+padding: 5px;
+    }
+
 
     .bottom_bar_links .link p {
         font-size: 12px;
         margin: 0;
-        color: #1570EF;
+        color: white;
     }
 
     .bottom_bar_links .link .link-out_sm {
-        color: #1570EF;
+        color: white;
         font-size: 25px;
     }
 

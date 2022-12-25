@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom'
 import { useParams } from "react-router-dom";
 import category from './Categories'
 import Sidebar from './Sidebar';
-
+import { FaArrowAltCircleLeft, FaRegTimesCircle } from "react-icons/fa";
 function TagProducts(props) {
-    const baseUrl = 'http://localhost:8000/api'
+    const baseUrl = 'hhttps://multivendy-api.onrender.com/api'
     const [products, setProducts] = useState([])
     const [totalResult, setTotalResults] = useState(0)
     const { tag } = useParams();
@@ -108,7 +108,7 @@ console.log(totalResult)
                 {
 
 
-                    <div className="prod_heading" id='latest'><h3>Found {totalResult} <span>({tag})</span>  </h3>
+                    <div className="prod_heading" id='latest'><Link to={'/store'} className='back_to_store'> <FaArrowAltCircleLeft /> Store </Link> <h3>Found {totalResult} <span>({tag})</span>  </h3>
 
 
                     </div>

@@ -6,9 +6,10 @@ import vendor from './assets/vendor.png';
 import { Link } from 'react-router-dom';
 import { BsArrowUpRightCircle } from "react-icons/bs";
 import { HiBars3BottomRight } from "react-icons/hi2";
+import VendorDashboardSidebar from './VendorDashbaordSidebar';
 
 
-const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
+const baseUrl = 'http://localhost:8000/api'
 function AddProduct() {
 
     const [cate, setCate] = useState([])
@@ -110,14 +111,14 @@ function AddProduct() {
 
     return (
         <div className="add_product">
-            <div className="sm_navigation">
+            {/* <div className="sm_navigation">
                 <HiBars3BottomRight onClick={() => {
                     setIsNavExpanded(!isNavExpanded)
                 }} className='open_v_sidebar' tabIndex={0} />
-            </div>
-            <div className="add_product_inner">
+            </div> */}
 
-                <div className={isNavExpanded ? 'vendor_sidebar_sm' : "vendor_sidebar"}>
+
+            {/* <div className={isNavExpanded ? 'vendor_sidebar_sm' : "vendor_sidebar"}>
 
                     <div className="user">
                         <div className="user_image">
@@ -137,21 +138,28 @@ function AddProduct() {
 
                     </div>
 
-                </div>
-                <div className="add_prod_form_wrap">
-                    <h3>Add A New<span> Product</span></h3>
-                    <div className="rules">
-                        <details>
-                            <summary>Check Guidelines</summary>
-                            <ul>
-                                <li>All fields must be filled</li>
-                                <li>Your Product will go live immediately  it's being added. </li>
-                                <li>Products must be related to the category selected, else it'll be deleted</li>
-                                <li>The featured image is the best way to show other varieties of the same product</li>
-                                <li>At least, 2 featured images must be added, the field for featured image 1 and 2 are required</li>
-                                <li>Make a short and explanatory description of the product, it's gives buyers an impre </li>
-                            </ul>
-                        </details>
+                </div> */}
+
+            <div className="add_prod_form_wrap">
+                <div className="add_prod_form_wrap_inner">
+                    <div className="add_prod_form_intro">
+                        <h3>Add A New<span> Product</span></h3>
+                        <div className="rules">
+                            <details>
+                                <summary>What ou should know</summary>
+                                <ul>
+                                    <li>All required fields must be filled</li>
+                                    <li>Your Product will go live immediately it's being added. </li>
+                                    <li>Products must be related to the category selected, else it'll be deleted</li>
+                                    <li>The featured image is the best way to show other varieties of the same product</li>
+                                    <li>At least, 2 featured images must be added, the field for featured image 1 and 2 are required</li>
+                                    <li>We recommended an image with no background for both product and featured images, our system automatically generates a gradient background for all images.</li>
+                                    <li>Add tags, products with tags will be rendered when a buyer clicks on the same tag or keyword related tag from another product</li>
+                                    <li>You can add more than 1 tag, but make sure the are seperated by a coma (",") . Here is an example for a cloth related product, e.g: chivon, linen, cotton </li>
+                                    <li>Make a short and explanatory description of the product, make buyers know the state of what they are buying from you. </li>
+                                </ul>
+                            </details>
+                        </div>
                     </div>
                     <div className="form_wrapper">
                         {/* {buyerSignup.status == 'success' && <p style={{ color: 'green' }}>Buyer Registration Successful</p>}
@@ -177,11 +185,11 @@ function AddProduct() {
                                 </div>
                             </div>
 
-                            <div className="category">
+                            <div className="category_select">
                                 <div className="form_item">
                                     <label htmlFor="product_category">Product Category <span>*</span></label>
 
-                                    <select defaultValue={'kk'} onChange={handleChange} name="category" id="">
+                                    <select onChange={handleChange} defaultValue={"dd"} name="category" id="">
                                         <option>Select a category</option>
                                         {
                                             cate.map((category, index) =>
@@ -274,9 +282,14 @@ function AddProduct() {
 
                     </div>
                 </div>
-            </div>
-        </div>
 
+            </div>
+
+            <div className="vendor_dashboard_right">
+                <VendorDashboardSidebar />
+            </div>
+
+        </div>
     )
 
 

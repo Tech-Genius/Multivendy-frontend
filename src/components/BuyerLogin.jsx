@@ -3,8 +3,9 @@ import './css/Login.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import VendorLogin from './VendorLogin'
+import { Link } from 'react-router-dom'
 
-const baseUrl = 'http://localhost:8000/api'
+const baseUrl = 'hhttps://multivendy-api.onrender.com/api'
 function BuyerLogin() {
     const [buyerLogin, setBuyerLogin] = useState({
         email: '',
@@ -101,6 +102,7 @@ function BuyerLogin() {
 
                     {/* </form> */}
                 </div>
+                <p>No, I'm a <Link to={'/vendor-login'}>vendor</Link></p>
             </div>
         </div>
     )

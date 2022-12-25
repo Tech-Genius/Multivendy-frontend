@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { RiAccountPinCircleLine } from "react-icons/ri";
 import { IoHomeOutline } from "react-icons/io5";
 import { IoMdLogIn } from "react-icons/io";
-import { FiUserPlus } from "react-icons/fi";
+import { FiUserMinus, FiUserPlus} from "react-icons/fi";
 import { BsBookmarkHeart } from "react-icons/bs";
 function Sidebar() {
 
@@ -35,7 +35,7 @@ function Sidebar() {
                             </Link>
                         </div>
                         <div className="user_sidebar_link">
-                            <Link to={'/vendor-login'} className="link_out">  <FiUserPlus className="user_sidebar_icon" />
+                            <Link to={'/buyer-signup'} className="link_out">  <FiUserPlus className="user_sidebar_icon" />
                                 <p>Sign Up </p>
                             </Link>
                         </div>
@@ -47,12 +47,12 @@ function Sidebar() {
                     <>
                         <div className="user_sidebar_link">
 
-                            <Link className="link_out">  <IoMdLogIn className="user_sidebar_icon" />
-                                <p>Profile</p>
+                            <Link to={'/vendor-dashboard'} className="link_out">  <IoMdLogIn className="user_sidebar_icon" />
+                                <p>Dashboard</p>
                             </Link>
                         </div>
                         <div className="user_sidebar_link">
-                            <Link to={'/vendor-logout'} className="link_out">  <FiUserPlus className="user_sidebar_icon" />
+                            <Link to={'/vendor-logout'} className="link_out">  <FiUserMinus className="user_sidebar_icon" />
                                 <p>Logout</p>
                             </Link>
                         </div>
@@ -70,7 +70,7 @@ function Sidebar() {
                             </Link>
                         </div>
                         <div className="user_sidebar_link">
-                            <Link to={'/buyer-logout'} className="link_out">  <FiUserPlus className="user_sidebar_icon" />
+                            <Link to={'/buyer-logout'} className="link_out">  <FiUserMinus className="user_sidebar_icon" />
                                 <p>Logout</p>
                             </Link>
                         </div>
@@ -80,7 +80,7 @@ function Sidebar() {
 
                 <div className="user_sidebar_link">
                     <Link className="link_out">  <BsBookmarkHeart className="user_sidebar_icon" />
-                        <p>Wishists</p>
+                        <p>Wishlist</p>
                     </Link>
                 </div>
 

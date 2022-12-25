@@ -62,14 +62,18 @@ details::before {
         display: flex;
         grid-template-columns: 1fr;
        width: 95%;
-       justify-self: center;
+    justify-content: unset;
        text-align: center;
     }
 
     .user_sidebar_links .user_sidebar_link{
-        padding: 10px 0px;
+        padding: 2px 0px;
         margin: 0;
         width: 98%;
+        justify-self: center;     
+           border: 1px dotted rgba(255, 255, 255, 0.24);
+           margin: 5px 5px;
+      
     }
     .user_sidebar_links .user_sidebar_link p{
         margin: 0;

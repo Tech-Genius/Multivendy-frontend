@@ -100,6 +100,14 @@
 .prod_heading {
   text-align: center;
   color: rgb(14, 118, 204);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+flex-wrap: wrap;
+}
+.prod_heading h3{
+ font-size: 22px;
+ margin: 0 5px;
 }
 
 .prod_heading span {
@@ -238,9 +246,16 @@ min-width: 23%;
   }
 
   .st_prod {
+    padding-bottom: 80px;
     width: 100%;
     margin: 0;
   }
+
+  .prod_heading h3{
+    font-size: 19px;
+    margin: 0 5px;
+   }
+   
 
 
   .import_user_links {

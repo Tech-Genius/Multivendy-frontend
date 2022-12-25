@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import "bootstrap/dist/css/bootstrap.css";
 import Header from './components/Header'
@@ -27,6 +27,16 @@ import TagProducts from './components/TagProducts';
 
 function App() {
    const location = useLocation()
+
+   const { pathname } = useLocation();
+
+   useEffect(() => {
+     window.scrollTo({
+       top: 0,
+       behavior: 'smooth'
+     });
+   }, [pathname]);
+ 
 
 
    return (

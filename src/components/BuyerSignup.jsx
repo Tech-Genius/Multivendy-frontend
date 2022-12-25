@@ -2,6 +2,7 @@ import react from 'react'
 import './css/Signup.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 const baseUrl = 'https://multivendy-backend-production.up.railway.app/api/customers/'
@@ -143,6 +144,7 @@ function BuyerSignup() {
 
                     {/* </form> */}
                 </div>
+                <p>No, I need a <Link to={'/vendor-signup'}>vendor account</Link></p>
             </div>
         </div>
     )

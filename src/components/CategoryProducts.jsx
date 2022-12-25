@@ -1,7 +1,4 @@
 import './css/Store.css'
-import reactLogo from './assets/react.svg';
-import landing from './assets/landing3.png';
-import delivery from './assets/delivery.png';
 import { useState, useEffect } from 'react';
 import Single from './Single';
 import Categories from './Categories'
@@ -9,16 +6,17 @@ import { Link } from 'react-router-dom'
 import { useParams } from "react-router-dom";
 import category from './Categories'
 import { HiBars3BottomRight } from "react-icons/hi2";
-import { FaSearch, FaRegTimesCircle } from "react-icons/fa";
+import { FaArrowAltCircleLeft, FaRegTimesCircle } from "react-icons/fa";
+import './css/CategoryProducts.css'
 import Sidebar from './Sidebar';
-function CategoryProducts(props) {
-    const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
+function CategoryProducts() {
+    const baseUrl = 'https://multivendy-api.onrender.com/api'
     const [products, setProducts] = useState([])
     const [totalResult, setTotalResults] = useState(0)
     const { category_id } = useParams();
     const { category_title } = useParams();
 
-    
+
     const [isCategoryExpanded, setIsCategoryExpanded] = useState(false)
     const close = () => {
         setIsCategoryExpanded(false);
@@ -134,7 +132,7 @@ function CategoryProducts(props) {
                 {
 
 
-                    <div className="prod_heading" id='latest'><h3>Latest Arivals <span>({category_title})</span> </h3>
+                    <div className="prod_heading" id='latest'><Link to={'/store'} className='back_to_store'> <FaArrowAltCircleLeft /> Store </Link>  <h3>Latest Arivals <span>({category_title})</span> </h3>
 
 
                     </div>

@@ -8,6 +8,7 @@
     width: 82%;
     display: flex;
     justify-content: space-between;
+    border-color: green;
 }
 .vendor_dashboard_right{
  

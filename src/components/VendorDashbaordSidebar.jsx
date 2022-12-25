@@ -3,7 +3,9 @@ import './css/VendorDashboardSidebar.css'
 import vendor from './assets/vendor.png';
 import { BsArrowUpRightCircle } from "react-icons/bs";
 import { useState } from 'react';
-import { HiBars3BottomRight } from "react-icons/hi2";
+import { HiBars3BottomRight, HiOutlineUser} from "react-icons/hi2";
+import { FaSearch, FaCartPlus, FaShoppingCart } from "react-icons/fa";
+import { BsBoxArrowInDown, BsCartCheckFill, BsCart4, BsCartPlus, BsCartCheck } from "react-icons/bs";
 // import { useForceUpdate } from 'react-force-update';
 
 function VendorDashboardSidebar() {
@@ -34,13 +36,13 @@ function VendorDashboardSidebar() {
                     </div>
 
                     <div className="links">
-                        <h3><Link to={'/store'}>Store<BsArrowUpRightCircle className='link-out' /></Link></h3>
-                        <h3><Link to={'/add-product'}>Add Product <BsArrowUpRightCircle className='link-out' /></Link></h3>
-                        <h3><Link to={'/add-product'}>My Products <BsArrowUpRightCircle className='link-out' /></Link></h3>
-                        <h3><Link to={'/add-product'}>Orders <BsArrowUpRightCircle className='link-out' /></Link></h3>
-                        <h3><Link to={'/add-product'}>My Top Buyers <BsArrowUpRightCircle className='link-out' /></Link></h3>
-                        <h3><Link to={'/add-product'}>Edit Profile <BsArrowUpRightCircle className='link-out' /></Link></h3>
-                        <h3><Link to={'/vendor-logout'}>Logout <BsArrowUpRightCircle className='link-out' /></Link></h3>
+                        <h3><Link className='vendor_links' to={'/store'}>Store <BsArrowUpRightCircle className='link-out' /></Link></h3>
+                        <h3><Link className='vendor_links' to={'/add-product'}>Add Product <BsArrowUpRightCircle className='link-out' /></Link></h3>
+                        <h3><Link className='vendor_links' to={'/add-product'}>My Products <BsArrowUpRightCircle className='link-out' /></Link></h3>
+                        <h3><Link className='vendor_links' to={'/add-product'}>Orders <BsArrowUpRightCircle className='link-out' /></Link></h3>
+                        <h3><Link className='vendor_links' to={'/add-product'}>My Top Buyers <BsArrowUpRightCircle className='link-out' /></Link></h3>
+                        <h3><Link className='vendor_links' to={'/add-product'}>Edit Profile <BsArrowUpRightCircle className='link-out' /></Link></h3>
+                        <h3><Link className='vendor_links' to={'/vendor-logout'}>Logout <BsArrowUpRightCircle className='link-out' /></Link></h3>
 
                     </div>
 
@@ -49,28 +51,38 @@ function VendorDashboardSidebar() {
                 <div className="vendor_bottom_bar">
                     <div className="bottom_bar_links">
                         <div className="link">
-                            <HiBars3BottomRight className='link-out_sm'/>
-                            <p>Store</p>
+                            <Link className='vendor_sm_links' to={'/store'}>
+                                <BsCart4 className='link-out_sm' />
+                                <p>Store</p>
+                            </Link>
                         </div>
 
                         <div className="link">
-                            <HiBars3BottomRight className='link-out_sm'/>
-                            <p>Add Products</p>
+                            <Link to={'/add-product'} className='vendor_sm_links'>
+                                <BsCartPlus className='link-out_sm' />
+                                <p>Add Products</p>
+                            </Link>
                         </div>
 
                         <div className="link">
-                            <HiBars3BottomRight className='link-out_sm'/>
-                            <p>Orders</p>
+                            <Link className='vendor_sm_links'>
+                                <BsBoxArrowInDown className='link-out_sm' />
+                                <p>Orders</p>
+                            </Link>
                         </div>
 
                         <div className="link">
-                            <HiBars3BottomRight className='link-out_sm'/>
-                            <p>Top Buyers</p>
+                            <Link className='vendor_sm_links'>
+                                <BsCartCheck className='link-out_sm' />
+                                <p>Top Buyers</p>
+                            </Link>
                         </div>
 
                         <div className="link">
-                            <HiBars3BottomRight className='link-out_sm'/>
-                            <p>Logout</p>
+                            <Link className='vendor_sm_links'>
+                                <HiOutlineUser className='link-out_sm' />
+                                <p>Profile</p>
+                            </Link>
                         </div>
 
                     </div>

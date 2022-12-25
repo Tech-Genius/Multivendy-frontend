@@ -2,9 +2,10 @@ import react from 'react'
 import './css/Login.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 
-const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
+const baseUrl = 'https://multivendy-api.onrender.com/api'
 function VendorLogin() {
 
     const [vendorLogin, setVendorLogin] = useState({
@@ -80,6 +81,7 @@ function VendorLogin() {
 
                     {/* </form> */}
                 </div>
+                <p>No, I'm a <Link to={'/buyer-login'}>buyer</Link></p>
             </div>
         </div>
     )

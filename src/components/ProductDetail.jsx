@@ -9,13 +9,16 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import axios from 'axios'
+import { HiBars3BottomRight } from "react-icons/hi2";
+import { FaArrowAltCircleLeft, FaRegTimesCircle } from "react-icons/fa";
+import Sidebar from "./Sidebar";
 function Detail() {
-    const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
+    const baseUrl = 'https://multivendy-api.onrender.com/api'
     const [product, setProduct] = useState([]);
     const [productTags, setProductTags] = useState([])
     // const [totalResult, setTotalResults] = useState(0)
     let { product_id } = useParams();
-  
+
 
     console.log(product)
 
@@ -35,9 +38,10 @@ function Detail() {
     }, [])
 
     const tagLinks = []
-    for(let i=0; i<productTags.length; i++){
+    for (let i = 0; i < productTags.length; i++) {
         let tag = productTags[i].trim();
-        tagLinks.push(<Link style={{margin:"5px"}} to={`/store/tags/${tag}`}>{tag}</Link>)
+
+        tagLinks.push(<Link className="tagLinks" style={{ margin: "5px" }} to={`/store/tags/${tag}`}>{tag}</Link>)
     }
 
 
@@ -63,7 +67,9 @@ function Detail() {
 
     return (
         <div className="product_detail">
-
+ <div className="import_user_links">
+                <Sidebar />
+            </div>
             <div className="prod_detail_inner">
 
                 <div className="prod_detail_box" id="img">
@@ -115,13 +121,15 @@ function Detail() {
                 </div>
 
                 <div className="prod_detail_box" id="txt">
-                    <h3 id="nane">Name: {product.title}</h3>
-                    <h6 id="details">Details: {product.detail}</h6>
-                    <p id="price">Price: &#8358;{product.price}</p>
+                    <Link to={'/store'} className='detail_back_to_store'> <FaArrowAltCircleLeft /> Store </Link>
+                    <h3 id="name">Name: <span>{product.title}</span></h3>
+                    <h6 id="details">Description: <span>{product.detail}</span></h6>
+                    <p id="price">Price: <span> &#8358;{product.price}</span></p>
+                    <p id="tag">Tags: <span id="taglinks">{tagLinks}</span></p>
+
 
                     <Link><button>Add to cart</button></Link>
-                   <p> Tags</p>
-<p>{tagLinks}</p>
+
                     <div className="featured_img">
 
                         <img src={product.featured_image1} />
@@ -136,6 +144,8 @@ function Detail() {
                 </div>
 
             </div>
+
+           
         </div>
     )
 }

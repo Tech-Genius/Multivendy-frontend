@@ -13,7 +13,7 @@ function Categories(props) {
     // const [isNavExpanded, setIsNavExpanded] = useState(false)
  
 
-    const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
+    const baseUrl = 'https://multivendy-api.onrender.com/api'
     const [categories, setCategories] = useState([])
     const [totalResult, setTotalResults] = useState(0)
 

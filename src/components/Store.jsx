@@ -11,7 +11,7 @@ import Sidebar from './Sidebar';
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { FaSearch, FaRegTimesCircle } from "react-icons/fa";
 function Store(props) {
-    const baseUrl = 'https://multivendy-backend-production.up.railway.app/api'
+    const baseUrl = 'https://multivendy-api.onrender.com/api'
     const [products, setProducts] = useState([])
     const [totalResult, setTotalResults] = useState(0)
 
