@@ -11,7 +11,7 @@ import category from './Categories'
 import Sidebar from './Sidebar';
 import { FaArrowAltCircleLeft, FaRegTimesCircle } from "react-icons/fa";
 function TagProducts(props) {
-    const baseUrl = 'hhttps://multivendy-api.onrender.com/api'
+    const baseUrl = 'https://multivendy-api.onrender.com/api'
     const [products, setProducts] = useState([])
     const [totalResult, setTotalResults] = useState(0)
     const { tag } = useParams();
