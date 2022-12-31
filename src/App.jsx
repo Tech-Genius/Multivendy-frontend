@@ -41,7 +41,11 @@ function App() {
 
    return (
       <>
-        {location.pathname == "vendor-login" || location.pathname == "/"  && (<Header />) }
+        {location.pathname == "/"  && (<Header />) }
+        {location.pathname == "/vendor-login"  && (<Header />) }
+        {location.pathname == "/buyer-login"  && (<Header />) }
+        {location.pathname == "/buyer-signup"  && (<Header />) }
+        {location.pathname == "/vendor-signup"  && (<Header />) }
         
       
 

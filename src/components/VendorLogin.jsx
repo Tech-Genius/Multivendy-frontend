@@ -81,7 +81,7 @@ function VendorLogin() {
 
                     {/* </form> */}
                 </div>
-                <p>No, I'm a <Link to={'/buyer-login'}>buyer</Link></p>
+                <p>No, I'm a <Link to={'/buyer-login'} className="opposite_link">buyer</Link></p>
             </div>
         </div>
     )

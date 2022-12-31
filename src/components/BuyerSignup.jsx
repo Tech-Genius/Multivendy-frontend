@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 
-const baseUrl = 'https://multivendy-backend-production.up.railway.app/api/customers/'
+const baseUrl = 'https://multivendy-api.onrender.com/api/customers/'
 function BuyerSignup() {
 
     const [buyerSignup, setBuyerSignup] = useState({
@@ -144,7 +144,7 @@ function BuyerSignup() {
 
                     {/* </form> */}
                 </div>
-                <p>No, I need a <Link to={'/vendor-signup'}>vendor account</Link></p>
+                <p>No, I need a <Link to={'/vendor-signup'} className="opposite_link">vendor account</Link></p>
             </div>
         </div>
     )

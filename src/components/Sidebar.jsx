@@ -74,15 +74,17 @@ function Sidebar() {
                                 <p>Logout</p>
                             </Link>
                         </div>
-                    </>
-                }
 
-
-                <div className="user_sidebar_link">
+                        <div className="user_sidebar_link">
                     <Link className="link_out">  <BsBookmarkHeart className="user_sidebar_icon" />
                         <p>Wishlist</p>
                     </Link>
                 </div>
+                    </>
+                }
+
+
+          
 
             </div>
 

@@ -150,6 +150,12 @@ border: 1px solid #1570EF;
     justify-self: start;
 }
 
+p .opposite_link{
+    text-decoration: underline;
+    font-weight: 700;
+    }
+    
+
 
 
 

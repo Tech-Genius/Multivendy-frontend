@@ -7,15 +7,21 @@
 
 .prod_detail_inner {
     height: 100%;
-    display: grid;
     justify-content: center;
     place-items: center;
-    grid-template-columns: 1fr 1fr;
     width: 85%;
     justify-self: center;
     margin: 0px 3.5%;
     position: absolute;
     left: 0;
+}
+.product_detail_wrap{
+    display: grid;
+    justify-content: center;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+    justify-self: center;
+  
 }
 
 .prod_detail_inner .prod_detail_box {
@@ -98,11 +104,12 @@
 .prod_detail_box#txt #name span,
 .prod_detail_box#txt #price span,
 .prod_detail_box#txt #details span,
+.prod_detail_box#txt #vendor span,
 .prod_detail_box#txt #tag .tagLinks {
     color: #eb870d;
 }
 
-.prod_detail_box#txt #price {
+.prod_detail_box#txt #price, .prod_detail_box#txt #details, .prod_detail_box#txt #vendor {
     color: rgb(14, 118, 204);
     font-size: 16px;
     margin: 0;
@@ -110,14 +117,12 @@
     font-weight: 700;
 }
 
-.prod_detail_box#txt #details {
-    color: rgb(14, 118, 204);
-    font-size: 16px;
-    margin: 0;
-    margin: 10px 0px;
-    font-weight: 700;
+.prod_detail_box#txt #vendor {
+    display: flex;
 }
-
+.prod_detail_box#txt #vendor .vendor_profile{
+    margin-left: 5px;
+}
 
 
 .prod_detail_box#txt #tag {
@@ -192,8 +197,18 @@ p span#taglinks {
     animation: zoom-in-zoom-out 2s ease;
 }
 
+.related_products{
+    margin-top: 50px;
+}
+.related_product_heading{
+    color:rgb(14, 118, 204) ;
+    text-align: center;
+    font-weight: 700;
+}
 
-
+.related_product_heading span{
+    color:#eb870d ;
+}
 
 
 
@@ -214,11 +229,13 @@ p span#taglinks {
     }
 
     .prod_detail_inner {
-        grid-template-columns: 1fr;
         width: 95%;
         height: fit-content;
         position: relative;
         margin-bottom: 80px;
+    }
+    .product_detail_wrap{
+        grid-template-columns: 1fr;     
     }
 
     .prod_detail_box#img img {
@@ -245,18 +262,18 @@ p span#taglinks {
         font-weight: 800;
     }
 
-    .prod_detail_box#txt #price {
+    .prod_detail_box#txt #price, .prod_detail_box#txt #details, .prod_detail_box#txt #tag, .prod_detail_box#txt #vendor{
         font-size: 15px;
         font-weight: 600;
     }
 
-    .prod_detail_box#txt #details {
-        font-size: 15px;
-        font-weight: 600;
-    }
 
 
     .prod_detail_box#txt .featured_img {
         display: none;
+    }
+
+    .related_product_heading{
+       font-size: 22px;
     }
 }
