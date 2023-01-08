@@ -9,11 +9,12 @@ import { HiBars3BottomRight } from "react-icons/hi2";
 import VendorDashboardSidebar from './VendorDashbaordSidebar';
 
 
-const baseUrl = 'https://multivendy-api.onrender.com/api'
+const baseUrl = 'multivendy-api.onrender.com/api'
 function AddProduct() {
 
     const [cate, setCate] = useState([])
     const [isNavExpanded, setIsNavExpanded] = useState(false)
+   
     const [addprod, setAddProd] = useState({
         'title': '',
         'price': '',
@@ -23,7 +24,9 @@ function AddProduct() {
         'featured_image2': '',
         'featured_image3': '',
         'featured_image4': '',
-        'description': ''
+        'tag_list': '',
+        'detail': ''
+
 
     })
 
@@ -59,6 +62,9 @@ function AddProduct() {
                 setCate(data.results)
             });
     }
+    // const tag_list = document.getElementById('tag_list');
+    // const list = tag_list.value.split(',');
+    // console.log(list)
 
     const handleChange = (event) => {
         setAddProd({
@@ -74,18 +80,22 @@ function AddProduct() {
         })
     }
 
+    
+
     const submitForm = () => {
         const addProductFormData = new FormData
         addProductFormData.append('title', addprod.title)
         addProductFormData.append('category', addprod.category)
         addProductFormData.append('price', addprod.price)
-        addProductFormData.append('description', addprod.description)
-        addProductFormData.append('vendor', 7);
+        addProductFormData.append('detail', addprod.detail)
+        addProductFormData.append('tag_list', addprod.tag_list)
+        addProductFormData.append('vendor', 3);
         addProductFormData.append('image', addprod.image, addprod.image.name);
         addProductFormData.append('featured_image1', addprod.featured_image1, addprod.featured_image1.name);
         addProductFormData.append('featured_image2', addprod.featured_image2, addprod.featured_image2.name);
         addProductFormData.append('featured_image3', addprod.featured_image3);
         addProductFormData.append('featured_image4', addprod.featured_image4);
+       
 
         try {
 
@@ -156,7 +166,7 @@ function AddProduct() {
                                     <li>We recommended an image with no background for both product and featured images, our system automatically generates a gradient background for all images.</li>
                                     <li>Add tags, products with tags will be rendered when a buyer clicks on the same tag or keyword related tag from another product</li>
                                     <li>You can add more than 1 tag, but make sure the are seperated by a coma (",") . Here is an example for a cloth related product, e.g: chivon, linen, cotton </li>
-                                    <li>Make a short and explanatory description of the product, make buyers know the state of what they are buying from you. </li>
+                                    <li>Make a short and explanatory detail of the product, make buyers know the state of what they are buying from you. </li>
                                 </ul>
                             </details>
                         </div>
@@ -253,11 +263,19 @@ function AddProduct() {
                         </div>
 
 
+                        <div className="tags">
+
+                            <div className="form_item">
+                                <label htmlFor="tags">Tags <span>*</span></label>
+                                <textarea value={[addprod.tag_list]} onChange={handleChange} name="tag_list" required id="tag_list" cols="30" rows="10" placeholder="Add at least one tag"></textarea>
+                            </div>
+                        </div>
+
                         <div className="description">
 
                             <div className="form_item">
-                                <label htmlFor="discription">Description <span>*</span></label>
-                                <textarea value={addprod.description} onChange={handleChange} name="description" id="discription" required cols="30" rows="10" placeholder="Discription about this product"></textarea>
+                                <label htmlFor="discription">Detail <span>*</span></label>
+                                <textarea value={addprod.detail} onChange={handleChange} name="detail" id="discription" required cols="30" rows="10" placeholder="Discription about this product"></textarea>
                             </div>
                         </div>
 

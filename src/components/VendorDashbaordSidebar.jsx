@@ -10,6 +10,8 @@ import { BsBoxArrowInDown, BsCartCheckFill, BsCart4, BsCartPlus, BsCartCheck } f
 
 function VendorDashboardSidebar() {
     const [isNavExpanded, setIsNavExpanded] = useState(false)
+    const vendorName = localStorage.getItem('vendorName')
+    console.log(vendorName)
     // const forceUpdate = useForceUpdate();
 
     // const forceUpdateHandler = () => {
@@ -32,13 +34,13 @@ function VendorDashboardSidebar() {
                         <div className="user_image">
                             <img src={vendor} alt="" />
                         </div>
-                        <h3>Welcome <span>Vendor</span></h3>
+                        <h3>Welcome <span>{vendorName}</span></h3>
                     </div>
 
                     <div className="links">
                         <h3><Link className='vendor_links' to={'/store'}>Store <BsArrowUpRightCircle className='link-out' /></Link></h3>
                         <h3><Link className='vendor_links' to={'/add-product'}>Add Product <BsArrowUpRightCircle className='link-out' /></Link></h3>
-                        <h3><Link className='vendor_links' to={'/add-product'}>My Products <BsArrowUpRightCircle className='link-out' /></Link></h3>
+                        <h3><Link className='vendor_links' to={'/vendor-products'}>My Products <BsArrowUpRightCircle className='link-out' /></Link></h3>
                         <h3><Link className='vendor_links' to={'/add-product'}>Orders <BsArrowUpRightCircle className='link-out' /></Link></h3>
                         <h3><Link className='vendor_links' to={'/add-product'}>My Top Buyers <BsArrowUpRightCircle className='link-out' /></Link></h3>
                         <h3><Link className='vendor_links' to={'/add-product'}>Edit Profile <BsArrowUpRightCircle className='link-out' /></Link></h3>
@@ -72,9 +74,9 @@ function VendorDashboardSidebar() {
                         </div>
 
                         <div className="link">
-                            <Link className='vendor_sm_links'>
+                            <Link to={'/vendor-products'} className='vendor_sm_links'>
                                 <BsCartCheck className='link-out_sm' />
-                                <p>Top Buyers</p>
+                                <p>My Products</p>
                             </Link>
                         </div>
 

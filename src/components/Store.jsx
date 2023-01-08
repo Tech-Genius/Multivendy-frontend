@@ -10,10 +10,12 @@ import Search from './Search';
 import Sidebar from './Sidebar';
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { FaSearch, FaRegTimesCircle } from "react-icons/fa";
+import ApiLoading from './ApiLoading';
 function Store(props) {
-    const baseUrl = 'https://multivendy-api.onrender.com/api'
+    const baseUrl = 'multivendy-api.onrender.com/api'
     const [products, setProducts] = useState([])
     const [totalResult, setTotalResults] = useState(0)
+    const [loading, setLoading] = useState(true)
 
     const [isNavExpanded, setIsNavExpanded] = useState(false)
     const close = () => {
@@ -21,31 +23,36 @@ function Store(props) {
     };
 
     useEffect(() => {
-        fetchData(baseUrl + '/store');
+
         document.title = 'Store';
 
-    }, []);
-
-    function fetchData(baseurl) {
-        fetch(baseurl)
+        setLoading(true);
+        fetch('https://multivendy-api.onrender.com/api/store')
             .then((response) => response.json())
             .then((data) => {
                 setProducts(data.results)
                 setTotalResults(data.count)
-
-                if (data === null) {
-                    return <p>Loading...</p>;
-                }
+            }).catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                setLoading(false);
             });
 
 
+
+    },
+        []);
+    if (loading) {
+        return < ApiLoading />;
     }
 
 
-    function changeUrl(baseurl) {
-        fetchData(baseurl)
 
-    }
+    // function changeUrl(baseurl) {
+    //     fetchData(baseurl)
+
+    // }
 
 
 
@@ -68,7 +75,6 @@ function Store(props) {
     //         .then((response) => response.json())
     //         .then((data) => setCategories(data.results));
     // }
-
 
 
 
@@ -134,7 +140,13 @@ function Store(props) {
                 <div className="st_prod_inner" id='best_sellers'>
                     <div className="st_prod_box">
                         {
-                            products.map((product) => <Single product={product} />)
+
+                            products.map((product) =>
+
+                                <Single product={product} />
+                            )
+
+
                         }
 
 

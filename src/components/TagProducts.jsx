@@ -10,10 +10,12 @@ import { useParams } from "react-router-dom";
 import category from './Categories'
 import Sidebar from './Sidebar';
 import { FaArrowAltCircleLeft, FaRegTimesCircle } from "react-icons/fa";
+import ApiLoading from './ApiLoading';
 function TagProducts(props) {
-    const baseUrl = 'https://multivendy-api.onrender.com/api'
+    const baseUrl = 'http://localhost:8000/api'
     const [products, setProducts] = useState([])
     const [totalResult, setTotalResults] = useState(0)
+    const [loading, setLoading] = useState(true)
     const { tag } = useParams();
 
     // const [totalResult, setTotalResults] = useState(0)
@@ -24,20 +26,41 @@ function TagProducts(props) {
 
 
     useEffect(() => {
-        fetchData(baseUrl + '/store/tags/' + tag);
+        setLoading(true)
+        // fetchData(baseUrl + '/store/tags/' + tag);
+
+        fetch('https://multivendy-api.onrender.com/api/store/tags/' + tag)
+        .then((response) => response.json())
+        .then((data) => {
+            setProducts(data.results)
+            setTotalResults(data.count)
+        }).catch((err) => {
+            console.log(err);
+        })
+        .finally(() => {
+            setLoading(false);
+        });
+
     }, []);
+    if(loading){
+        return<ApiLoading/>
+    }
 
-    function fetchData(baseurl) {
-        fetch(baseurl)
-            .then((response) => response.json())
-            .then((data) => {
-                setProducts(data.results)
-                setTotalResults(data.count)
+    
 
-            });
+    // function fetchData(baseurl) {
+    //     fetch(baseurl)
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             setProducts(data.results)
+    //             setTotalResults(data.count)
+
+    //         });
+
+
 
 console.log(totalResult)
-    }
+    
     // function changeUrl(baseurl) {
     //     fetchData(baseurl)
 

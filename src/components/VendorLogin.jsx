@@ -5,7 +5,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 
-const baseUrl = 'https://multivendy-api.onrender.com/api'
+const baseUrl = 'multivendy-api.onrender.com/api'
 function VendorLogin() {
 
     const [vendorLogin, setVendorLogin] = useState({
@@ -28,6 +28,8 @@ function VendorLogin() {
             axios.post(baseUrl + '/vendor-login', vendorFormData).then((res) => {
                 if (res.data.bool == true){
                     localStorage.setItem('vendorLoginStatus',true)
+                    localStorage.setItem('vendorId', res.data.vendor_id)
+                    localStorage.setItem('vendorName', res.data.vendor_first_name)
                     window.location.href='/vendor-login'
                 }
             })

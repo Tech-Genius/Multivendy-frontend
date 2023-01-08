@@ -12,7 +12,7 @@ import Single from './components/Single';
 import Categories from './components/Categories';
 import CategoryProducts from './components/CategoryProducts';
 import Search from './components/Search';
-import Tab from './components/Tab';
+import ApiLoading from './components/ApiLoading';
 import Detail from './components/ProductDetail';
 import VendorSignup from './components/VendorSignup';
 import BuyerSignup from './components/BuyerSignup';
@@ -24,6 +24,7 @@ import BuyerLogout from './components/BuyerLogout';
 import AddProduct from './components/AddProduct';
 import VendorDashboard from './components/VendorDashboard';
 import TagProducts from './components/TagProducts';
+import VendorProducts from './components/VendorProducts';
 
 function App() {
    const location = useLocation()
@@ -52,6 +53,7 @@ function App() {
          <Routes>
             <Route path='/' element={<Home />} />
             <Route path='store' element={<Store />} />
+            <Route path='apiloading' element={<ApiLoading />} />
             <Route path='single' element={<Single />} />
             <Route path='sidebar' element={<Sidebar />} />
             <Route path='categories' element={<Categories />} />
@@ -67,6 +69,7 @@ function App() {
             <Route path='best-sellers' element={<BestVendors />} />
             <Route path='add-product' element={<AddProduct />} />
             <Route path='vendor-dashboard' element={<VendorDashboard />} />
+            <Route path='vendor-products' element={<VendorProducts />} />
          </Routes>
 
       </>
