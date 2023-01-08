@@ -9,7 +9,7 @@ import { HiBars3BottomRight } from "react-icons/hi2";
 import VendorDashboardSidebar from './VendorDashbaordSidebar';
 
 
-const baseUrl = 'multivendy-api.onrender.com/api'
+const baseUrl = 'https://multivendy-api.onrender.com/api'
 function AddProduct() {
 
     const [cate, setCate] = useState([])

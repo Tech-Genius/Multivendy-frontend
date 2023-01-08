@@ -5,7 +5,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 
-const baseUrl = 'multivendy-api.onrender.com/api'
+const baseUrl = 'https://multivendy-api.onrender.com/api'
 function VendorLogin() {
 
     const [vendorLogin, setVendorLogin] = useState({

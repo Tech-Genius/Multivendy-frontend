@@ -10,7 +10,7 @@ import { FaArrowAltCircleLeft, FaRegTimesCircle } from "react-icons/fa";
 import './css/CategoryProducts.css'
 import Sidebar from './Sidebar';
 function CategoryProducts() {
-    const baseUrl = 'multivendy-api.onrender.com/api'
+    const baseUrl = 'https://multivendy-api.onrender.com/api'
     const [products, setProducts] = useState([])
     const [totalResult, setTotalResults] = useState(0)
     const { category_id } = useParams();

@@ -28,7 +28,7 @@ function VendorProducts() {
 
     useEffect(() => {
         setLoading(true)
-        fetch('multivendy-api.onrender.com/api/vendor-products/'  + vendorId)
+        fetch('https://multivendy-api.onrender.com/api/vendor-products/'  + vendorId)
         .then((response) => response.json())
         .then((data) => {
             setVendorProducts(data.results)
