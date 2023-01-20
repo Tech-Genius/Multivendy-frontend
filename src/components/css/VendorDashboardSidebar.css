@@ -1,5 +1,4 @@
 .vendor_dashboard_sidebar {
-
     position: relative;
 }
 
@@ -15,7 +14,6 @@
     width: 17%;
     right: 0;
     position: fixed;
-  
     border-left: 1px solid rgba(160, 157, 157, 0.712);
     overflow: auto;
     height: fit-content;

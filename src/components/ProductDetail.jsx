@@ -30,21 +30,21 @@ function Detail() {
 
     useEffect(() => {
         setLoading(true);
-       
-            axios.get(baseUrl + '/store/' + product_id)
-                .then((res) => {
-                    setProduct(res.data)
-                    setProductTags(res.data.tag_list)
-                    setVendor(res.data.vendor)
-                }).catch(error => {
-                    console.log(error)
-        
-                }).finally(() => setLoading(false));
-        
+
+        axios.get(baseUrl + '/store/' + product_id)
+            .then((res) => {
+                setProduct(res.data)
+                setProductTags(res.data.tag_list)
+                setVendor(res.data.vendor)
+            }).catch(error => {
+                console.log(error)
+
+            }).finally(() => setLoading(false));
+
 
         fetchRelatedProductData(baseUrl + '/related-product/' + product_id)
         document.title = 'Product Detail'
-        
+
 
     }, [product_id])
 
@@ -157,19 +157,39 @@ function Detail() {
 
                     <div className="prod_detail_box" id="txt">
                         <Link to={'/store'} className='detail_back_to_store'> <FaArrowAltCircleLeft /> Store </Link>
-                        <h3 id="name">Name: <span>{product.title}</span></h3>
-                        <h6 id="details">Description: <span>{product.detail}</span></h6>
-                        <p id="price">Price: <span> &#8358;{product.price}</span></p>
-                        <p id="tag">Tags: <span id="taglinks">{tagLinks}</span></p>
-                        <p id="vendor" title="View Profile">Vendor: <Link className="vendor_profile">
-                            {vendor != null &&
-                                <span>
-                                    {vendor.first_name} {vendor.last_name}</span>
-                            }
-                        </Link></p>
+                        <div className="detail_box_text" id="product-name">
+                            <h3 id="name" className="lg_screen">Name: <span>{product.title}</span></h3>
+                            <h3 id="name" className="sm_screen"><span>{product.title}</span></h3>
+                        
+                        </div>
+
+                        <div className="detail_box_text">
+                            <h6 id="details">Description: <span>{product.detail}</span></h6>
+                        </div>
+
+                        <div className="detail_box_text">
+                            <p id="price">Price: <span> &#8358;{product.price}</span></p>
+                        </div>
+
+                        <div className="detail_box_text">
+                            <p id="tag">Tags: <span id="taglinks">{tagLinks}</span></p>
+                        </div>
+
+                        <div className="detail_box_text">
+                            <p id="vendor" title="View Profile">Vendor: <Link className="vendor_profile">
+                                {vendor != null &&
+                                    <span>
+                                        {vendor.first_name} {vendor.last_name}</span>
+                                }
+                            </Link></p>
+                        </div>
+
+
+
+
                         <Link><button>Add to cart</button></Link>
 
-                        <div className="featured_img">
+                        {/* <div className="featured_img">
                             {product.featured_image1 &&
                                 <img src={product.featured_image1} />
                             }
@@ -182,7 +202,7 @@ function Detail() {
                             {product.featured_image4 &&
                                 <img src={product.featured_image4} />
                             }
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 

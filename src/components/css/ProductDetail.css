@@ -90,18 +90,42 @@
 .prod_detail_box#txt .detail_back_to_store {
     font-size: 16px;
     border: 1px dotted rgb(14, 118, 204);
-    color: rgb(14, 118, 204);
-    padding: 5px 20px;
-    border-radius: 20px;
-
+    color:white;
+    padding: 6px 22px;
+margin-bottom: 50px !important;
+top: 0;
+left: 0;
+position: fixed;
+background-image: linear-gradient(to right, rgb(8, 33, 104) 40%, rgb(14, 118, 204));
+z-index: 990;
 }
 
-.prod_detail_box#txt #name {
-    font-size: 22px;
+.detail_box_text{
+    border-radius: 10px;
+    padding: 10px;
+    border: #eb870d6b 1px solid;
     margin: 10px 0px;
+}
+
+.prod_detail_box#txt #name{
+    font-size: 22px;
+    margin: 0px;
     color: rgb(14, 118, 204);
-    margin-top: 20px;
     font-weight: 800;
+}
+.prod_detail_box#txt .sm_screen{
+    display: none;
+}
+
+
+@keyframes scroll-right {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
 }
 
 .prod_detail_box#txt #name span,
@@ -227,6 +251,7 @@ p span#taglinks {
 
 
 @media screen and (max-width:768px) {
+
     .product_detail {
         padding-top: 50px;
     }
@@ -236,9 +261,55 @@ p span#taglinks {
         height: fit-content;
         position: relative;
         margin-bottom: 80px;
+        padding: 0px;
     }
     .product_detail_wrap{
         grid-template-columns: 1fr;     
+    }
+
+    .prod_detail_box#txt .detail_back_to_store {
+        padding: 5px 20px;
+        right: 0;
+       width: fit-content;
+    
+    }
+
+  
+    
+
+    .detail_box_text#product-name{
+        top: 0;
+        position: fixed;
+        width: 100%;
+        text-align: center;
+        margin: 0 !important;
+        border: none;
+        border-radius: 0;
+        z-index: 200;
+        border-radius: 0px 0px 10px 10px;
+        padding: 16px 0px;
+        background-color: white; 
+        border-bottom: #eb870d6b 1px solid;     
+    }
+    
+
+    .prod_detail_box#txt #name{
+        top: 0;
+        position: fixed;
+        width: 100%;       
+        margin-top: 5px ;
+        font-size: 18px;
+        font-weight: 800;    
+        animation: scroll-right 10s linear infinite;
+    }
+  
+
+
+    .prod_detail_box#txt .sm_screen{
+        display: block;
+    }
+    .prod_detail_box#txt .lg_screen{
+        display: none;
     }
 
     .prod_detail_box#img img {
@@ -260,10 +331,7 @@ p span#taglinks {
         font-size: 14px;
     }
 
-    .prod_detail_box#txt #name {
-        font-size: 21px;
-        font-weight: 800;
-    }
+ 
 
     .prod_detail_box#txt #price, .prod_detail_box#txt #details, .prod_detail_box#txt #tag, .prod_detail_box#txt #vendor{
         font-size: 15px;

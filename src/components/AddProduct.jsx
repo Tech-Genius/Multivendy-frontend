@@ -14,6 +14,8 @@ function AddProduct() {
 
     const [cate, setCate] = useState([])
     const [isNavExpanded, setIsNavExpanded] = useState(false)
+    const vendorId = localStorage.getItem('vendorId')
+    console.log(vendorId)
    
     const [addprod, setAddProd] = useState({
         'title': '',
