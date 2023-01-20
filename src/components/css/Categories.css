@@ -11,10 +11,28 @@
 
 .category_box p{
   width: fit-content;
+  font-size: 13px;
 }
   .link_to_cate{
     color: white;
     text-align: center;
     border: 1px dotted rgba(255, 255, 255, 0.568);
-    padding: 10px;
+    padding: 5px;
+  }
+
+
+
+
+
+
+
+
+  @media screen and (max-width:768px){
+    .category_box p{
+      font-size: 12px;
+    }
+
+    .link_to_cate{
+      padding: 10px;
+    }
   }

@@ -83,7 +83,7 @@ margin-bottom: 50px;
 }
 
 .vendor_sidebar_inner .links h3 .vendor_links{
-    font-size: 16px;
+    font-size: 13px;
     color: white;
     border: 1px dotted rgba(255, 255, 255, 0.678);
     padding: 7px 15px;
@@ -101,6 +101,7 @@ margin-bottom: 50px;
     margin: 20px 0px;
     display: flex;
     align-items: center;
+    font-size: 13px;
 }
 
 .vendor_sidebar_inner .links h3 .link-out {
@@ -225,7 +226,7 @@ padding: 5px;
 
 
     .bottom_bar_links .link p {
-        font-size: 12px;
+        font-size: 10px;
         margin: 0;
         color: white;
     }
@@ -234,6 +235,8 @@ padding: 5px;
         color: white;
         font-size: 25px;
     }
+
+
 
 
     .vendor_sidebar_inner .vendor_sidebar {

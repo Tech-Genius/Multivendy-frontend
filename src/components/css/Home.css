@@ -189,6 +189,7 @@ color: #eb870d;
 
     .box_wrapper #text{
       width: 100%;
+      text-align: start;
     }
     .background_inner .box_wrapper .box{
       padding: 30px;

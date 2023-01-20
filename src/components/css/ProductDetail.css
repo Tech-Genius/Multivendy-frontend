@@ -241,7 +241,7 @@ p span#taglinks {
 
 @media screen and (max-width:1024px) {
     .prod_detail_box#img img {
-        width: 100%;
+      
     }
 
     .prod_detail_box#txt .featured_img {

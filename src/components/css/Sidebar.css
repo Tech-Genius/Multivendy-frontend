@@ -24,10 +24,11 @@ details::before {
 }
 
 .user_sidebar_links .user_sidebar_link{
-    width: 95%;
     justify-self: center;
     margin: 20px 0px;
     color: white !important;
+    border: 1px dotted rgba(255, 255, 255, 0.24);
+ padding: 5px;
 }
 
 .user_sidebar_links .user_sidebar_link .user_sidebar_icon{
@@ -38,6 +39,13 @@ details::before {
 
 .user_sidebar_links .user_sidebar_link  .link_out{
     color: white;
+    font-size: 12px;
+  
+}
+
+.user_sidebar_links .user_sidebar_link p{
+    margin: 0;
+
 }
 
 
@@ -80,7 +88,7 @@ details::before {
     }
 
     .user_sidebar_links .user_sidebar_link  .link_out{
-        font-size: 13px;
+        font-size: 10px;
     }
 
     
