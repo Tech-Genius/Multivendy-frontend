@@ -88,16 +88,18 @@
 
 
 .prod_detail_box#txt .detail_back_to_store {
-    font-size: 16px;
+    font-size: 13px;
     border: 1px dotted rgb(14, 118, 204);
     color:white;
-    padding: 6px 22px;
+    padding: 8px 30px;
 margin-bottom: 50px !important;
 top: 0;
 left: 0;
 position: fixed;
 background-image: linear-gradient(to right, rgb(8, 33, 104) 40%, rgb(14, 118, 204));
 z-index: 990;
+border-radius: 0px 5px 5px 0px;
+
 }
 
 .detail_box_text{
@@ -164,8 +166,8 @@ z-index: 990;
 }
 
 .prod_detail_box#txt #tag .tagLinks {
-    border: 1px dotted rgb(14, 118, 204);
-    border-radius: 20px;
+    border: 1px solid rgb(14, 118, 204);
+    border-radius: 10px;
     padding: 5px 20px;
     font-size: 16px;
     padding-top: 3px;
@@ -268,9 +270,10 @@ p span#taglinks {
     }
 
     .prod_detail_box#txt .detail_back_to_store {
-        padding: 5px 20px;
+        padding: 6px 22px;
         right: 0;
        width: fit-content;
+       font-size: 11px;
     
     }
 
@@ -287,9 +290,9 @@ p span#taglinks {
         border-radius: 0;
         z-index: 200;
         border-radius: 0px 0px 10px 10px;
-        padding: 16px 0px;
+        padding: 17px 0px;
         background-color: white; 
-        border-bottom: #eb870d6b 1px solid;     
+        border-bottom:rgb(14, 118, 204) 1px solid;     
     }
     
 

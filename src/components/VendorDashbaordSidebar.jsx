@@ -3,20 +3,15 @@ import './css/VendorDashboardSidebar.css'
 import vendor from './assets/vendor.png';
 import { BsArrowUpRightCircle } from "react-icons/bs";
 import { useState } from 'react';
-import { HiBars3BottomRight, HiOutlineUser} from "react-icons/hi2";
+import { HiBars3BottomRight,  HiOutlineUser } from "react-icons/hi2";
+import { HiOutlineX } from "react-icons/hi";
 import { FaSearch, FaCartPlus, FaShoppingCart } from "react-icons/fa";
 import { BsBoxArrowInDown, BsCartCheckFill, BsCart4, BsCartPlus, BsCartCheck } from "react-icons/bs";
-// import { useForceUpdate } from 'react-force-update';
 
 function VendorDashboardSidebar() {
-    const [isNavExpanded, setIsNavExpanded] = useState(false)
+    const [isProfileNavExpanded, setIsProfileNavExpanded] = useState(false)
     const vendorName = localStorage.getItem('vendorName')
     console.log(vendorName)
-    // const forceUpdate = useForceUpdate();
-
-    // const forceUpdateHandler = () => {
-    //   forceUpdate();
-    // };
 
     return (
 
@@ -81,8 +76,10 @@ function VendorDashboardSidebar() {
                         </div>
 
                         <div className="link">
-                            <Link className='vendor_sm_links'>
-                                <HiOutlineUser className='link-out_sm' />
+                            <Link className='vendor_sm_links' onClick={() => {
+                    setIsProfileNavExpanded(!isProfileNavExpanded)
+                }} >
+                             {isProfileNavExpanded ? <HiOutlineX className='link-out_sm' /> : <HiOutlineUser className='link-out_sm' />}
                                 <p>Profile</p>
                             </Link>
                         </div>
@@ -90,9 +87,23 @@ function VendorDashboardSidebar() {
                     </div>
                 </div>
 
-                {/* <div className="right_bar">
-                    ff
-                </div> */}
+
+                <div className={isProfileNavExpanded ? 'vendor_profile_sm' : 'vendor_profile_lg'}>
+                    <div className="user">
+                        <div className="user_image">
+                            <img src={vendor} alt="" />
+                        </div>
+                        <h3>Welcome <span>{vendorName}</span></h3>
+                    </div>
+                    <div className="links">
+                    <h3><Link className='vendor_links' to={'/add-product'}>Edit Profile <BsArrowUpRightCircle className='link-out' /></Link></h3>
+                    <h3><Link className='vendor_links' to={'/vendor-logout'}>Logout <BsArrowUpRightCircle className='link-out' /></Link></h3>
+
+                </div>
+
+                </div>
+
+              
             </div>
 
         </div>

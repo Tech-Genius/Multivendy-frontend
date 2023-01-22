@@ -5,7 +5,7 @@ import Single from './Single'
 import './css/VendorProduct.css'
 import emptyProduct from './assets/empty-product-removebg-preview.png'
 import VendorDashboardSidebar from './VendorDashbaordSidebar'
-import { FaArrowAltCircleLeft, FaCartPlus, FaRegTimesCircle } from "react-icons/fa";
+import { FaArrowAltCircleLeft, FaCartPlus, FaRegTimesCircle, FaEye, FaEdit } from "react-icons/fa";
 import ApiLoading from './ApiLoading'
 
 const baseUrl = 'http://localhost:8000/api'
@@ -89,9 +89,9 @@ function VendorProducts() {
 
                                         <div className="vendor_product_box_inner">
                                             <h3>{product.title}</h3>
-                                            <Link to={`/store/${product.id}`}><button title='View Product'>View Product</button></Link>
+                                            <Link to={`/store/${product.id}`}><button title='View Product'>View <FaEye className='vendor_product_icon'/></button></Link>
 
-                                            <Link to={`/store/${product.id}`}><button title='View Product'>Edit Product</button></Link>
+                                            <Link to={`/store/${product.id}`}><button title='View Product'>Edit <FaEdit  className='vendor_product_icon'/></button></Link>
 
                                         </div>
 

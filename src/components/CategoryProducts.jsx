@@ -9,12 +9,15 @@ import { HiBars3BottomRight } from "react-icons/hi2";
 import { FaArrowAltCircleLeft, FaRegTimesCircle } from "react-icons/fa";
 import './css/CategoryProducts.css'
 import Sidebar from './Sidebar';
+import ApiLoading from './ApiLoading';
 function CategoryProducts() {
-    const baseUrl = 'https://multivendy-api.onrender.com/api'
+
     const [products, setProducts] = useState([])
     const [totalResult, setTotalResults] = useState(0)
     const { category_id } = useParams();
     const { category_title } = useParams();
+    const [loading, setLoading] = useState(true)
+
 
 
     const [isCategoryExpanded, setIsCategoryExpanded] = useState(false)
@@ -22,39 +25,47 @@ function CategoryProducts() {
         setIsCategoryExpanded(false);
     };
 
-    // const [totalResult, setTotalResults] = useState(0)
-
-
-
 
 
 
     useEffect(() => {
-        fetchData(baseUrl + '/store-filter/?category=' + category_id);
-    }, [category_id]);
 
-    function fetchData(baseurl) {
-        fetch(baseurl)
+        document.title = 'Store';
+
+        setLoading(true);
+        fetch('https://multivendy-api.onrender.com/api/store-filter/?category=' + category_id)
             .then((response) => response.json())
             .then((data) => {
                 setProducts(data.results)
                 setTotalResults(data.count)
-
-                if (data.results == 0) {
-                    console.log("nodata")
-                    return (<p style={{ marginTop: "100px" }}>No Data Here</p>)
-
-                }
-
-
+            }).catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                setLoading(false);
+                setIsCategoryExpanded(false);
+               
             });
 
 
-    }
-    function changeUrl(baseurl) {
-        fetchData(baseurl)
 
+    },
+        [category_id]);
+    if (loading) {
+        return < ApiLoading />;
     }
+
+
+
+
+
+
+
+
+
+
+
+
     var links = []
     var limit = 1
     var totalLinks = totalResult / limit
@@ -142,7 +153,7 @@ function CategoryProducts() {
                 <div className="st_prod_inner" id='latest'>
                     <div className="st_prod_box">
                         {
-                            products.map((product) => <Single product={product} />)
+                            products.map((product) => <Single key={product.id} product={product} />)
                         }
 
 
@@ -156,7 +167,7 @@ function CategoryProducts() {
                 <div className="st_prod_inner" id='best_sellers'>
                     <div className="st_prod_box">
                         {
-                            products.map((product) => <Single product={product} />)
+                            products.map((product) => <Single  key={product.id} product={product} />)
                         }
 
 

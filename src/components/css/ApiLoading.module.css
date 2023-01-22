@@ -148,7 +148,7 @@ justify-content: center;
   display: grid;
 }
 .spinner p{
-  margin-top: 50px;
+  margin-top: 40px;
   -webkit-animation: sk-bounce 1.4s infinite ease-in-out;
   animation: sk-bounce 1.4s infinite ease-in-out;
 }
