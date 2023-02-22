@@ -1,30 +1,30 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import "bootstrap/dist/css/bootstrap.css";
-import Header from './components/Header'
-import Home from './components/Home'
+import Header from './components/Header/Header'
+import Home from './components/home/Home'
 import { Route, Routes, useLocation } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Store from './components/Store'
-import Sidebar from './components/Sidebar';
-import Single from './components/Single';
-import Categories from './components/Categories';
-import CategoryProducts from './components/CategoryProducts';
+import Store from './components/store/Store'
+import Sidebar from './components/store/Sidebar';
+import Single from './components/store/Single';
+import Categories from './components/store/Categories';
+import CategoryProducts from './components/store/CategoryProducts';
 import Search from './components/Search';
-import ApiLoading from './components/ApiLoading';
-import Detail from './components/ProductDetail';
-import VendorSignup from './components/VendorSignup';
-import BuyerSignup from './components/BuyerSignup';
-import VendorLogin from './components/VendorLogin';
-import BuyerLogin from './components/BuyerLogin';
+import ApiLoading from './components/loading/ApiLoading/ApiLoading';
+import Detail from './components/store/ProductDetail';
+import VendorSignup from './components/account/VendorSignup';
+import BuyerSignup from './components/account/BuyerSignup';
+import VendorLogin from './components/account/VendorLogin';
+import BuyerLogin from './components/account/BuyerLogin';
 import BestVendors from './components/BestVendors';
-import VendorLogout from './components/VendorLogout';
-import BuyerLogout from './components/BuyerLogout';
-import AddProduct from './components/AddProduct';
-import VendorDashboard from './components/VendorDashboard';
-import TagProducts from './components/TagProducts';
-import VendorProducts from './components/VendorProducts';
+import VendorLogout from './components/account/VendorLogout';
+import BuyerLogout from './components/account/BuyerLogout';
+import AddProduct from './components/dashboard/AddProduct';
+import VendorDashboard from './components/dashboard/VendorDashboard';
+import TagProducts from './components/store/TagProducts';
+import VendorProducts from './components/dashboard/VendorProducts';
 
 function App() {
    const location = useLocation()

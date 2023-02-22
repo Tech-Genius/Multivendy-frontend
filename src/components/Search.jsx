@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import axios from 'axios';
-import Tab from "./ApiLoading";
+import ApiLoading from "./loading/ApiLoading/ApiLoading";
 
 
 function Search() {
