@@ -1,0 +1,240 @@
+.vendor_dashboard_sidebar {
+    position: relative;
+}
+
+
+.vendor_sidebar_inner {
+    display: grid;
+    width: 17%;
+    right: 0;
+    position: fixed;
+    border-left: 1px solid rgba(160, 157, 157, 0.712);
+    overflow: auto;
+    height: fit-content;
+    overflow: auto;
+    display: grid;
+    padding: 50px 0px;
+    justify-content: center;
+    height: 100% !important;
+place-items: center;
+    background-image: linear-gradient(to right, rgb(8, 33, 104) 40%, rgb(14, 118, 204));
+}
+
+
+.user {
+margin-bottom: 30px;
+display: grid;
+justify-content: center;
+width: 100%;
+text-align: center;
+
+}
+
+
+.user h3 {
+    font-size: 16px;
+    color: white;
+    margin-top: 5px !important;
+    margin: 0;
+}
+
+.user h3 span {
+    color: #eb870d;
+}
+
+.user_image {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.658);
+    display: grid;
+    justify-content: center;
+    place-items: center;
+    justify-self: center;
+}
+
+.vendor_sidebar_inner .vendor_sidebar .user img {
+    height: 50px;
+
+}
+
+.vendor_sidebar_inner .vendor_sidebar_sm .user img {
+    height: 50px;
+margin-bottom: 50px;
+}
+
+.vendor_sidebar_inner .links h3 .vendor_links{
+    font-size: 13px;
+    color: white;
+    border: 1px dotted rgba(255, 255, 255, 0.678);
+    padding: 7px 15px;
+    border-radius: 5px;
+}
+
+.vendor_sidebar_inner .links{
+    display: grid;
+   justify-content: center;
+   width: 100%;
+   text-align: center;
+}
+
+.vendor_sidebar_inner .links h3{
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+.vendor_sidebar_inner .links h3 .link-out {
+    color: white;
+    font-weight: 1200;
+    font-weight: 800;
+}
+
+.vendor_sidebar_inner .vendor_bottom_bar {
+    display: none;
+}
+
+.vendor_profile_lg{
+    display: none;
+}
+
+.vendor_profile_sm{
+    background-image: linear-gradient(to right, rgb(8, 33, 104) 40%, rgb(14, 118, 204));
+border-radius: 5px 0px 0px 0px;
+    bottom: 0;
+    margin-bottom: 63px;
+    position: fixed;
+    right: 0;
+    height: fit-content !important;
+    padding: 50px;
+animation: zoom-out 1s ease;
+}
+@keyframes zoom-out {
+
+    0% {
+      transform: scale(0.2);
+      margin-bottom: 100%;
+    }
+  
+  }
+
+.vendor_profile_sm .user img {
+    height: 50px;
+
+}
+
+.vendor_profile_sm .user img {
+    height: 50px;
+margin-bottom: 50px;
+}
+
+
+
+
+
+
+@media screen and (max-width:1024px) {
+
+    .vendor_sidebar_inner .vendor_sidebar {
+        width: 20%;
+    }
+
+    .vendor_sidebar_inner .right_bar {
+        width: 80%;
+    }
+
+}
+
+@media screen and (max-width:768px) {
+    .sm_navigation {
+        position: absolute;
+        display: grid;
+        margin: 20px;
+        background-color: green;
+        right: 0;
+    }
+
+    .sm_navigation .open_v_sidebar {
+        justify-self: right;
+        position: fixed;
+        z-index: 990;
+        font-size: 40px;
+        color: #1570EF;
+        border: 2px solid #1570EF;
+        outline: none;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: white;
+    }
+
+    .vendor_sidebar_inner {
+        display: block;
+        width: 100%;
+        bottom: 0;
+        position: fixed;
+        margin-top: 10px;
+        border-top: 1px solid rgba(160, 157, 157, 0.712);
+        height: fit-content !important;
+        padding: 0px;
+        z-index: 999;
+        justify-content: start;
+    }
+
+
+    .vendor_sidebar_inner .vendor_bottom_bar {
+        width: 100%;
+
+        overflow: hidden;
+        height: fit-content !important;
+        display: grid;
+padding: 5px 0px;
+align-items: center;
+    }
+
+    .vendor_bottom_bar .bottom_bar_links {
+        width: 100%;
+        justify-self: center;
+        display: flex;
+        align-items: flex-start;
+        justify-content:space-around;
+  
+        
+    }
+
+    .bottom_bar_links .link {
+     display: grid;
+       width: fit-content;
+        justify-self: center; 
+        text-align: center;
+    }
+    .vendor_sm_links{
+width: 100%;
+justify-self: center;
+border: 1px dotted rgba(255, 255, 255, 0.24);
+padding: 5px;
+    }
+
+
+    .bottom_bar_links .link p {
+        font-size: 10px;
+        margin: 0;
+        color: white;
+    }
+
+    .bottom_bar_links .link .link-out_sm {
+        color: white;
+        font-size: 25px;
+    }
+
+
+
+
+    .vendor_sidebar_inner .vendor_sidebar {
+        display: none;
+    }
+
+
+
+}
