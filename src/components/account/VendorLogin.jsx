@@ -3,10 +3,10 @@ import './assets/css/Login.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import ApiLoading from './ApiLoading'
+import PostedDataLoading from '../loading/PostedDataLoading/PostedDataLoading'
 
 
-const baseUrl = 'http://localhost:8000/api'
+const baseUrl = 'https://multivendy-api.onrender.com/api'
 function VendorLogin() {
 
     const [vendorLogin, setVendorLogin] = useState({
@@ -15,6 +15,7 @@ function VendorLogin() {
     });
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState();
+    const [success, setSuccess] = useState();
 
     const handleChange = (event) => {
         setVendorLogin({
@@ -59,6 +60,8 @@ function VendorLogin() {
                 // success handling
                 if (res.data.status == "succesfull") {
                     console.log("Succesful")
+                    setError('')
+                    setSuccess("Login Successful!");
                     localStorage.setItem('vendorLoginStatus', true);
                     localStorage.setItem('vendorId', res.data.vendor_id);
                     localStorage.setItem('vendorName', res.data.vendor_first_name);
@@ -79,7 +82,7 @@ function VendorLogin() {
     }
 
     if (loading){
-        return(<ApiLoading/>)
+        return(<PostedDataLoading/>)
     }
 
 
@@ -121,9 +124,10 @@ function VendorLogin() {
 
                         <div className="button">
                             <div className="form_item">
-                                <button onClick={submitForm} type="submit" id='btn__submit'>Login</button>
+                                <button type="submit" id='btn__submit'>Login</button>
                             </div>
                         </div>
+                        {success ? <div style={{ color: "green" }}>{success}</div> : null}
                         {error ? <div style={{ color: "red" }}>{error}</div> : null}
                     </form>
                 </div>

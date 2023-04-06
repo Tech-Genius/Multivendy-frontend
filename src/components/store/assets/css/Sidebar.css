@@ -10,10 +10,6 @@
     background-image: linear-gradient(to right, rgb(8, 33, 104) 40%, rgb(14, 118, 204));
 }
 
-details::before {
-    content: none !important;
-
-}
 
 .user_sidebar_links {
     display: grid;
@@ -64,7 +60,7 @@ details::before {
         right: auto;
         bottom: 0;
         width: 100%;
-        height: fit-content;
+        height: fit-content !important;
     }
     .user_sidebar_links {
         display: flex;

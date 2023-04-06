@@ -4,9 +4,13 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import VendorLogin from './VendorLogin'
 import { Link } from 'react-router-dom'
+import PostedDataLoading from '../loading/PostedDataLoading/PostedDataLoading'
 
 const baseUrl = 'https://multivendy-api.onrender.com/api'
 function BuyerLogin() {
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
     const [buyerLogin, setBuyerLogin] = useState({
         email: '',
         password: ''
@@ -23,18 +27,27 @@ function BuyerLogin() {
 
     const submitForm = (e) => {
         e.preventDefault();
+        setLoading(true)
         const buyerFormData = new FormData
         buyerFormData.append('email', buyerLogin.email)
         buyerFormData.append('password', buyerLogin.password)
 
         try {
             axios.post(baseUrl + '/customer-login', buyerFormData).then((res) => {
-                if (res.data.bool == true) {
+                if (res.data.status == "succesfull") {
+                    console.log("Succesful")
+                    setError('')
+                    setSuccess("Login Succesful!")
                     localStorage.setItem('buyerLoginStatus', true)
-                    window.location.href = '/store'
+                    localStorage.setItem('buyerID', res.data.buyer_id)
+                    localStorage.setItem('buyerName', res.data.buyer_first_name)
+                    setLoading(false)
                 }
-                else{
-                    console.log("error")
+
+                else {
+                    console.log("Failed")
+                    setError("Your Cridentials Do Not Match!")
+                    setLoading(false)
                 }
 
             })
@@ -43,6 +56,10 @@ function BuyerLogin() {
         }
     }
 
+
+    if (loading) {
+        return (<PostedDataLoading/>)
+    }
 
     const buyerLoginStatus = localStorage.getItem('buyerLoginStatus')
     if (buyerLoginStatus == 'true') {
@@ -79,15 +96,6 @@ function BuyerLogin() {
                         </div>
 
 
-                        {/* <div className="message">
-
-                            <div className="form_item">
-                                <label htmlFor="message">Message</label>
-                                <textarea name="message" id="message" required cols="30" rows="10" placeholder="Send me a message and I'll reply you as soon as possible..."></textarea>
-                            </div>
-                        </div> */}
-
-
                         {/* <div className="data">
                             <div className="form_item_checkbox">
                                 <input type="checkbox" className='checkbox' required />
@@ -97,7 +105,9 @@ function BuyerLogin() {
                                 <p>You agree to providing your data to Habeeb who may contact you.</p>
                             </div>
                         </div> */}
-
+                        
+                        {success ? <div style={{ color: "green" }}>{success}</div> : null}
+                        {error ? <div style={{ color: "red" }}>{error}</div> : null}
                         <div className="button">
                             <div className="form_item">
                                 <button type="submit" id='btn__submit'>Login</button>

@@ -3,16 +3,19 @@ import './assets/css/Signup.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import PostedDataLoading from '../loading/PostedDataLoading/PostedDataLoading'
 
 const baseUrl = 'https://multivendy-api.onrender.com/api/vendors/'
 function VendorSignup() {
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
     const [vendorSignup, setVendorSignup] = useState({
         'first_name': '',
         'last_name': '',
         'email': '',
         'password': '',
         'phone': '',
-        'status': ''
     });
 
     //change element value
@@ -27,7 +30,9 @@ function VendorSignup() {
 
 
     //submit form
-    const submitForm = () => {
+    const submitForm = (e) => {
+        e.preventDefault();
+        setLoading(true)
         const vendorFormData = new FormData();
         vendorFormData.append("first_name", vendorSignup.first_name)
         vendorFormData.append("last_name", vendorSignup.last_name)
@@ -35,36 +40,37 @@ function VendorSignup() {
         vendorFormData.append("password", vendorSignup.password)
         vendorFormData.append("phone", vendorSignup.phone)
 
-        try{
-            axios.post(baseUrl, vendorFormData).then((response) => {
-                setVendorSignup(
-                    {
-                        'first_name': '',
-                        'last_name': '',
-                        'email': '',
-                        'password': '',
-                        'phone': '',
-                        'status':'success'
-                    }
 
-                )
+        axios.post(baseUrl, vendorFormData).then((response) => {
+            setVendorSignup(
+                {
+                    'first_name': '',
+                    'last_name': '',
+                    'email': '',
+                    'password': '',
+                    'phone': '',
+                }
 
-                localStorage.setItem('vendorLoginStatus',true)
-                window.location.href='/vendor-login'
-            })
-
-        }catch(error) {
+            )
+            setSuccess('Registration Successful!')
+            localStorage.setItem('vendorLoginStatus', true)
+            setLoading(false)
+        }).catch((error) => {
             console.log(error)
-            setVendorSignup({'status':'error'})
-        }
+
+        })
 
 
     }
 
+    if (loading) {
+        return (<PostedDataLoading />)
+    }
+
 
     const vendorLoginStatus = localStorage.getItem('vendorLoginStatus')
-    if(vendorLoginStatus=='true'){
-        window.location.href='/vendor-dashboard'
+    if (vendorLoginStatus == 'true') {
+        window.location.href = '/vendor-dashboard'
     }
 
     return (
@@ -72,10 +78,8 @@ function VendorSignup() {
             <div className="signup_inner">
                 <h3>Create A Vendor<span> Account</span></h3>
                 <div className="form_wrapper">
-                    {vendorSignup.status=='success' && <p style={{color:'green'}}>Registration successful, redirecting to dashboard</p>}
-                    {vendorSignup.status=='error' && <p style={{color:'red'}}>Something went wrong, try again</p>}
-                    {/* <form action=""> */}
-
+                    <form action="POST" onSubmit={submitForm}>
+                        {success && <p>{success}</p>}
                         <div className="name">
                             <div className="form_item" id='first_name'>
                                 <label htmlFor="first_name">First Name <span>*</span></label>
@@ -140,11 +144,11 @@ function VendorSignup() {
 
                         <div className="button">
                             <div className="form_item">
-                                <button onClick={submitForm} type='submit'>Sign Up</button>
+                                <button type='submit'>Sign Up</button>
                             </div>
                         </div>
 
-                    {/* </form> */}
+                    </form>
                 </div>
                 <p>No, I need a <Link to={'/buyer-signup'} className="opposite_link">buyer account</Link></p>
             </div>

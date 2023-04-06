@@ -16,8 +16,8 @@
   .background_inner{
 
     background-image: linear-gradient(45deg,rgb(15, 62, 189) 50%,#eb870d 50%);
-    height: fit-content;
-    padding: 70px 0px;
+    height: 95vh;
+    padding: 100px 0px;
   }
   .box_wrapper{
     display: grid;
@@ -34,11 +34,11 @@
   }
 
   .box_wrapper #text{
-    width: 65%;
+    width: 75%;
   }
   .box_wrapper .box h3{
-    font-size: 45px;
-    font-weight: bold
+    font-size: 50px;
+    font-weight: bolder;
   }
 
   .box_wrapper .box h3 span{

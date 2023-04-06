@@ -155,10 +155,16 @@ p .opposite_link{
     font-weight: 700;
     }
     
+.success-message{
+    color: green;
+}
+.error-message{
+    color: red !important;
+}
 
-
-
-
+.error-message:first-letter {
+    text-transform: capitalize;
+  }
 
 
 

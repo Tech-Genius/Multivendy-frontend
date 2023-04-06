@@ -10,7 +10,7 @@ import ApiLoading from '../loading/ApiLoading/ApiLoading';
 
 
 function TagProducts(props) {
-    const baseUrl = 'http://localhost:8000/api'
+    const baseUrl = 'https://multivendy-api.onrender.com/api'
     const [products, setProducts] = useState([])
     const [totalResult, setTotalResults] = useState(0)
     const [loading, setLoading] = useState(true)

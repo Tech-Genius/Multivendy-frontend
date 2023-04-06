@@ -13,6 +13,7 @@ import Categories from './components/store/Categories';
 import CategoryProducts from './components/store/CategoryProducts';
 import Search from './components/Search';
 import ApiLoading from './components/loading/ApiLoading/ApiLoading';
+import PostedDataLoading from './components/loading/PostedDataLoading/PostedDataLoading';
 import Detail from './components/store/ProductDetail';
 import VendorSignup from './components/account/VendorSignup';
 import BuyerSignup from './components/account/BuyerSignup';
@@ -54,6 +55,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='store' element={<Store />} />
             <Route path='apiloading' element={<ApiLoading />} />
+            <Route path='posted-data-loading' element={<PostedDataLoading />} />
             <Route path='single' element={<Single />} />
             <Route path='sidebar' element={<Sidebar />} />
             <Route path='categories' element={<Categories />} />

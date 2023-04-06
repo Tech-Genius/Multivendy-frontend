@@ -112,7 +112,6 @@ export default class Header extends Component {
                </div>
 
                <div className="sm_controls">
-                  <div className="sm_cntrl filters"><i className='fa fa-filter'></i></div>
                   <div className="sm_cntrl open"><i className='fa fa-bars'></i></div>
                   <div className="sm_cntrl close"><i className='fa fa-times'></i></div>
                </div>
