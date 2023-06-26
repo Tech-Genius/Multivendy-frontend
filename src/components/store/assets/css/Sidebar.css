@@ -60,7 +60,7 @@
         right: auto;
         bottom: 0;
         width: 100%;
-        height: fit-content !important;
+        height: 60px;
     }
     .user_sidebar_links {
         display: flex;
